@@ -1,9 +1,5 @@
 # Ada Analysis & Test Generation Tool
 
-**Author: Rakshitha**  
-**GitHub:** https://github.com/rakshitha91204/Ada-Analysis-and-Test-Generation-Tool  
-**License:** MIT © 2025 Rakshitha
-
 A full-stack web IDE for **Ada source code static analysis and automatic test case generation**.
 
 | Layer | Stack |
@@ -602,6 +598,4 @@ The `start_server.bat` echo message says port 8000 but the server runs on **8001
 
 ## Repository
 
-**GitHub:** https://github.com/rakshitha91204/Ada-Analysis-and-Test-Generation-Tool  
-**Author:** Rakshitha  
-**License:** MIT © 2025 Rakshitha
+**GitHub:** https://github.com/Banarji03/ada-analysis-tool

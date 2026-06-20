@@ -1,8 +1,5 @@
 # Ubuntu Setup Guide — Ada Analysis & Test Generation Tool
 
-**Author:** Rakshitha  
-**GitHub:** https://github.com/rakshitha91204/Ada-Analysis-and-Test-Generation-Tool
-
 Complete guide for running this project on Ubuntu/Linux after `git clone`, using Alire to build libadalang.
 
 ---
@@ -37,7 +34,7 @@ alr --version
 ## Step 1 — Clone the repository
 
 ```bash
-git clone https://github.com/rakshitha91204/Ada-Analysis-and-Test-Generation-Tool.git
+git clone https://github.com/Banarji03/ada-analysis-tool.git
 cd Ada-Analysis-and-Test-Generation-Tool
 ```
 

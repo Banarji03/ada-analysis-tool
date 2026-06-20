@@ -1,9 +1,5 @@
 # Ada Analysis & Test Generation Tool
 
-**Author:** Rakshitha  
-**GitHub:** https://github.com/rakshitha91204/Ada-Analysis-and-Test-Generation-Tool  
-**License:** MIT © 2025 Rakshitha
-
 A full-stack web IDE for **Ada source code static analysis and automatic test case generation**, powered by AdaCore's **libadalang** semantic AST library.
 
 | Layer | Stack |
@@ -70,7 +66,7 @@ A full-stack web IDE for **Ada source code static analysis and automatic test ca
 ### Step 1 — Clone & install frontend
 
 ```bash
-git clone https://github.com/rakshitha91204/Ada-Analysis-and-Test-Generation-Tool.git
+git clone https://github.com/Banarji03/ada-analysis-tool.git
 cd Ada-Analysis-and-Test-Generation-Tool
 npm install
 npm run dev

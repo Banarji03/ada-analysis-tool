@@ -2,7 +2,6 @@
  * TestStudioPanel.tsx
  * ===================
  * Ada Test Studio embedded inside the main IDE bottom panel.
- * Author: Rakshitha
  *
  * All 5 bug fixes from correction/ada_test_studio:
  *   BUG FIX 1: safeFetch() guards against HTML error pages returned as JSON

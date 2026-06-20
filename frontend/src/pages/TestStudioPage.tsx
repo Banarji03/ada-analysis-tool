@@ -2,7 +2,6 @@
  * TestStudioPage.tsx
  * ==================
  * Ada Test Studio — integrated from correction/ada_test_studio/frontend/src/App.jsx
- * Author: Rakshitha
  *
  * Bug fixes applied (from correction/api_server.py comments):
  *   BUG FIX 1: safeFetch() — guards against HTML error pages returned as JSON

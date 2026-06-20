@@ -1,8 +1,5 @@
 """
 Ada Analysis Tool - Backend Server
-Author: Rakshitha
-GitHub: https://github.com/rakshitha91204/Ada-Analysis-and-Test-Generation-Tool
-License: MIT (c) 2025 Rakshitha
 
 Endpoints:
     GET  /health              - liveness check
