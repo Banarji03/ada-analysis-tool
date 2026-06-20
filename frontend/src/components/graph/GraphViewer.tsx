@@ -152,7 +152,7 @@ export const GraphViewer: React.FC = () => {
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center z-10">
           <div className="flex flex-col items-center gap-3">
-            <div className="w-8 h-8 border-2 border-amber-500 border-t-transparent rounded-full spin" />
+            <div className="w-8 h-8 border-2 border-cyan-500 border-t-transparent rounded-full spin" />
             <p className="text-xs font-mono text-zinc-500">Rendering graph...</p>
           </div>
         </div>

@@ -23,8 +23,8 @@ export const IconButton: React.FC<IconButtonProps> = ({
       aria-label={label}
       className={`inline-flex items-center justify-center rounded transition-all duration-150 focus-ring ${sizeClass} ${
         active
-          ? 'text-amber-400 bg-amber-500/10'
-          : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800'
+          ? 'text-cyan-400 bg-cyan-500/10'
+          : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
       } disabled:opacity-40 disabled:cursor-not-allowed ${className}`}
       {...props}
     >

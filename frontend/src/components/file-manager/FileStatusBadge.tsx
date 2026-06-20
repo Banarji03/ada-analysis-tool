@@ -7,7 +7,7 @@ interface FileStatusBadgeProps {
 
 const statusConfig: Record<FileStatus, { color: string; label: string; pulse?: boolean }> = {
   pending: { color: '#52525b', label: 'Pending' },
-  parsing: { color: '#f59e0b', label: 'Parsing', pulse: true },
+  parsing: { color: '#22d3ee', label: 'Parsing', pulse: true },
   parsed: { color: '#22c55e', label: 'Parsed' },
   error: { color: '#ef4444', label: 'Error' },
 };

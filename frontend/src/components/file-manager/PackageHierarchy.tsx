@@ -78,11 +78,11 @@ export const PackageHierarchy: React.FC = () => {
                 ? <ChevronRight size={10} className="text-zinc-600" />
                 : <ChevronDown size={10} className="text-zinc-600" />
               }
-              <Package size={11} className="text-amber-500/70 flex-shrink-0" />
+              <Package size={11} className="text-cyan-500/70 flex-shrink-0" />
               <span className="text-xs font-mono text-zinc-300 flex-1 truncate">{pkgName}</span>
               <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded ${
                 file.type === 'spec'
-                  ? 'bg-amber-500/15 text-amber-400'
+                  ? 'bg-cyan-500/10 text-cyan-400'
                   : 'bg-orange-500/15 text-orange-400'
               }`}>
                 {file.type === 'spec' ? 'spec' : 'body'}
@@ -91,7 +91,7 @@ export const PackageHierarchy: React.FC = () => {
                 <button
                   onClick={(e) => { e.stopPropagation(); jumpToLinked(linkedId); }}
                   title={`Jump to ${file.type === 'spec' ? 'body' : 'spec'}`}
-                  className="p-0.5 rounded text-zinc-600 hover:text-amber-400 transition-colors"
+                  className="p-0.5 rounded text-zinc-600 hover:text-cyan-400 transition-colors"
                 >
                   <Link size={10} />
                 </button>
@@ -178,7 +178,7 @@ export const PackageHierarchy: React.FC = () => {
                         title="Right-click for actions"
                       >
                         {sub.kind === 'procedure'
-                          ? <Zap size={11} className="text-amber-500/70 flex-shrink-0" />
+                          ? <Zap size={11} className="text-cyan-500/70 flex-shrink-0" />
                           : <FunctionSquare size={11} className="text-orange-500/70 flex-shrink-0" />
                         }
                         <span className="text-[10px] font-mono text-zinc-300 flex-1 truncate">{sub.name}</span>

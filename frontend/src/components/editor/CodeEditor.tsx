@@ -10,7 +10,7 @@ const MonacoEditor = React.lazy(() =>
 );
 
 const EditorSkeleton: React.FC = () => (
-  <div className="w-full h-full flex flex-col gap-2 p-4" style={{ background: '#0e0e10' }}>
+  <div className="w-full h-full flex flex-col gap-2 p-4" style={{ background: '#0c1120' }}>
     {Array.from({ length: 20 }).map((_, i) => (
       <div key={i} className="skeleton h-4 rounded" style={{ width: `${40 + (i * 7) % 50}%` }} />
     ))}
@@ -19,8 +19,8 @@ const EditorSkeleton: React.FC = () => (
 
 const FallbackEditor: React.FC<{ content: string }> = ({ content }) => (
   <textarea
-    className="w-full h-full font-mono text-sm text-zinc-300 resize-none p-4 outline-none"
-    style={{ background: '#0e0e10', border: 'none' }}
+    className="w-full h-full font-mono text-sm text-slate-300 resize-none p-4 outline-none"
+    style={{ background: '#0c1120', border: 'none' }}
     value={content}
     readOnly
   />
@@ -39,7 +39,7 @@ const StickySubprogramHeader: React.FC<{ line: number }> = ({ line }) => {
       style={{ background: 'rgba(14,14,16,0.97)', borderColor: 'var(--border-default)' }}
     >
       <span className="text-zinc-600 flex-shrink-0">{currentSub.kind}</span>
-      <span className={`font-semibold flex-shrink-0 ${currentSub.id === selectedSubprogramId ? 'text-amber-400' : 'text-zinc-300'}`}>
+      <span className={`font-semibold flex-shrink-0 ${currentSub.id === selectedSubprogramId ? 'text-cyan-400' : 'text-zinc-300'}`}>
         {currentSub.name}
       </span>
       <span className="text-zinc-600 truncate">
@@ -258,7 +258,7 @@ export const CodeEditor: React.FC = () => {
             isWholeLine: true,
             className: 'ada-highlight-line',
             glyphMarginClassName: 'ada-gutter-decoration',
-            overviewRuler: { color: '#f59e0b', position: monaco.editor.OverviewRulerLane.Left },
+            overviewRuler: { color: '#22d3ee', position: monaco.editor.OverviewRulerLane.Left },
           },
         });
       }
@@ -330,12 +330,12 @@ export const CodeEditor: React.FC = () => {
   return (
     <div className="w-full h-full flex flex-col overflow-hidden">
       <style>{`
-        .ada-highlight-line { background: rgba(245,158,11,0.08) !important; }
-        .ada-gutter-decoration::before { content:'◈'; color:#f59e0b; font-size:12px; }
+        .ada-highlight-line { background: rgba(34,211,238,0.08) !important; }
+        .ada-gutter-decoration::before { content:'◈'; color:#22d3ee; font-size:12px; }
         .ada-test-pass-gutter::before { content:'✓'; color:#22c55e; font-size:11px; font-weight:bold; }
         .ada-test-fail-gutter::before { content:'✗'; color:#ef4444; font-size:11px; font-weight:bold; }
-        .ada-test-partial-gutter::before { content:'~'; color:#f59e0b; font-size:11px; font-weight:bold; }
-        @keyframes navFlash { 0%{background:rgba(245,158,11,0.4)} 60%{background:rgba(245,158,11,0.15)} 100%{background:transparent} }
+        .ada-test-partial-gutter::before { content:'~'; color:#22d3ee; font-size:11px; font-weight:bold; }
+        @keyframes navFlash { 0%{background:rgba(34,211,238,0.4)} 60%{background:rgba(34,211,238,0.15)} 100%{background:transparent} }
         .ada-nav-flash { animation: navFlash 1.4s ease forwards !important; }
       `}</style>
 

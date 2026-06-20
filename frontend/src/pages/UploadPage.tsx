@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Diamond, ArrowRight, FolderOpen, Plus, Trash2, Edit2,
+  Cpu, ArrowRight, FolderOpen, Plus, Trash2, Edit2,
   Clock, FileCode, Check, X, ChevronRight, Zap,
 } from 'lucide-react';
 import { FileDropzone } from '../components/upload/FileDropzone';
@@ -54,14 +54,14 @@ const ProjectRow: React.FC<{
     <div
       className="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer transition-all"
       style={{
-        background: isActive ? 'rgba(245,158,11,0.1)' : 'rgba(255,255,255,0.03)',
-        border: `1px solid ${isActive ? 'rgba(245,158,11,0.35)' : 'rgba(255,255,255,0.06)'}`,
+        background: isActive ? 'rgba(34,211,238,0.07)' : 'rgba(255,255,255,0.025)',
+        border: `1px solid ${isActive ? 'rgba(34,211,238,0.3)' : 'rgba(255,255,255,0.05)'}`,
       }}
       onClick={() => !editing && onOpen(project.name)}
     >
       <div className="flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0"
-        style={{ background: isActive ? 'rgba(245,158,11,0.15)' : 'rgba(255,255,255,0.05)' }}>
-        <FolderOpen size={16} style={{ color: isActive ? '#f59e0b' : '#71717a' }} />
+        style={{ background: isActive ? 'rgba(34,211,238,0.12)' : 'rgba(255,255,255,0.04)' }}>
+        <FolderOpen size={16} style={{ color: isActive ? '#22d3ee' : '#475569' }} />
       </div>
 
       <div className="flex-1 min-w-0">
@@ -77,7 +77,7 @@ const ProjectRow: React.FC<{
             style={{ color: 'var(--text-primary)', borderColor: 'var(--accent-primary)' }}
           />
         ) : (
-          <p className="text-sm font-mono font-semibold truncate" style={{ color: isActive ? '#f59e0b' : 'var(--text-primary)' }}>
+          <p className="text-sm font-mono font-semibold truncate" style={{ color: isActive ? '#22d3ee' : 'var(--text-primary)' }}>
             {project.name}
           </p>
         )}
@@ -93,7 +93,7 @@ const ProjectRow: React.FC<{
 
       {isActive && (
         <span className="text-[9px] font-mono px-2 py-0.5 rounded-full flex-shrink-0"
-          style={{ background: 'rgba(245,158,11,0.2)', color: '#f59e0b' }}>
+          style={{ background: 'rgba(34,211,238,0.15)', color: '#22d3ee' }}>
           active
         </span>
       )}
@@ -103,7 +103,7 @@ const ProjectRow: React.FC<{
           onClick={e => { e.stopPropagation(); setEditing(true); setNewName(project.name); }}
           className="p-1.5 rounded-lg transition-colors"
           style={{ color: 'var(--text-muted)' }}
-          onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = '#f59e0b'; (e.currentTarget as HTMLButtonElement).style.background = 'rgba(245,158,11,0.1)'; }}
+          onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = '#22d3ee'; (e.currentTarget as HTMLButtonElement).style.background = 'rgba(34,211,238,0.1)'; }}
           onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = 'var(--text-muted)'; (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; }}
           title="Rename project"
         >
@@ -113,7 +113,7 @@ const ProjectRow: React.FC<{
           onClick={e => { e.stopPropagation(); onDelete(project.name); }}
           className="p-1.5 rounded-lg transition-colors"
           style={{ color: 'var(--text-muted)' }}
-          onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = '#f87171'; (e.currentTarget as HTMLButtonElement).style.background = 'rgba(239,68,68,0.1)'; }}
+          onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = '#f87171'; (e.currentTarget as HTMLButtonElement).style.background = 'rgba(248,113,113,0.1)'; }}
           onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = 'var(--text-muted)'; (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; }}
           title="Delete project"
         >
@@ -192,15 +192,18 @@ const UploadPage: React.FC = () => {
   const looseFiles = files.filter(f => !f.folderId);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4"
+    <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden"
       style={{ background: 'var(--bg-base)' }}>
+
+      {/* Ambient orb */}
+      <div className="hero-orb" />
 
       {/* Delete confirmation overlay */}
       {confirmDelete && (
         <div className="fixed inset-0 z-50 flex items-center justify-center"
-          style={{ background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(4px)' }}>
+          style={{ background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(6px)' }}>
           <div className="rounded-2xl p-6 w-80 flex flex-col gap-4"
-            style={{ background: 'var(--bg-elevated)', border: '1px solid rgba(239,68,68,0.3)' }}>
+            style={{ background: 'var(--bg-elevated)', border: '1px solid rgba(248,113,113,0.25)' }}>
             <p className="text-sm font-mono font-semibold" style={{ color: 'var(--text-primary)' }}>
               Delete "{confirmDelete}"?
             </p>
@@ -209,7 +212,7 @@ const UploadPage: React.FC = () => {
             </p>
             <div className="flex gap-2">
               <button className="flex-1 py-2 rounded-lg text-xs font-mono transition-colors"
-                style={{ background: 'rgba(239,68,68,0.15)', color: '#f87171', border: '1px solid rgba(239,68,68,0.3)' }}
+                style={{ background: 'rgba(248,113,113,0.12)', color: '#f87171', border: '1px solid rgba(248,113,113,0.28)' }}
                 onClick={() => handleDeleteProject(confirmDelete)}>
                 Delete
               </button>
@@ -226,25 +229,27 @@ const UploadPage: React.FC = () => {
       <div className="w-full max-w-[720px] flex flex-col gap-0">
 
         {/* ── Header ──────────────────────────────────────────────────────── */}
-        <div className="flex flex-col items-center gap-3 text-center mb-6">
-          <div className="flex items-center justify-center w-12 h-12 rounded-xl"
-            style={{ background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.2)' }}>
-            <Diamond size={24} style={{ color: '#f59e0b' }} />
+        <div className="flex flex-col items-center gap-3 text-center mb-7">
+          {/* Logo mark */}
+          <div className="flex items-center justify-center w-14 h-14 rounded-2xl"
+            style={{ background: 'linear-gradient(135deg, rgba(34,211,238,0.15) 0%, rgba(129,140,248,0.15) 100%)', border: '1px solid rgba(34,211,238,0.2)', boxShadow: '0 0 30px rgba(34,211,238,0.08)' }}>
+            <Cpu size={26} style={{ color: '#22d3ee' }} />
           </div>
           <div>
-            <h1 className="text-xl font-semibold font-mono" style={{ color: 'var(--text-primary)' }}>
-              Ada Analysis & Test Generation
+            <h1 className="text-2xl font-bold tracking-tight" style={{ color: 'var(--text-primary)', fontFamily: "'JetBrains Mono', monospace" }}>
+              Ada Analysis
+              <span style={{ background: 'linear-gradient(135deg, #22d3ee, #818cf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}> &amp; Testing</span>
             </h1>
-            <p className="text-sm mt-1" style={{ color: 'var(--text-muted)' }}>
+            <p className="text-sm mt-1.5" style={{ color: 'var(--text-muted)' }}>
               Create or open a project to begin
             </p>
           </div>
-          <div className="flex items-center gap-4 text-[11px] font-mono" style={{ color: 'var(--text-disabled)' }}>
-            <span className="flex items-center gap-1"><Zap size={9} style={{ color: '#f59e0b' }} /> Static Analysis</span>
-            <span>·</span>
-            <span className="flex items-center gap-1"><Zap size={9} style={{ color: '#f59e0b' }} /> Test Generation</span>
-            <span>·</span>
-            <span className="flex items-center gap-1"><Zap size={9} style={{ color: '#f59e0b' }} /> Call Graph</span>
+          <div className="flex items-center gap-5 text-[11px]" style={{ color: 'var(--text-disabled)' }}>
+            <span className="flex items-center gap-1.5"><Zap size={9} style={{ color: '#22d3ee' }} /> Static Analysis</span>
+            <span style={{ color: 'var(--border-default)' }}>·</span>
+            <span className="flex items-center gap-1.5"><Zap size={9} style={{ color: '#818cf8' }} /> Test Generation</span>
+            <span style={{ color: 'var(--border-default)' }}>·</span>
+            <span className="flex items-center gap-1.5"><Zap size={9} style={{ color: '#34d399' }} /> Call Graph</span>
           </div>
         </div>
 
@@ -253,10 +258,10 @@ const UploadPage: React.FC = () => {
 
           {/* ── Left: Create / New Project ─────────────────────────────────── */}
           <div className="flex flex-col gap-4 p-5 rounded-2xl overflow-hidden"
-            style={{ background: 'rgba(22,22,26,0.95)', border: '1px solid #27272a' }}>
+            style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-default)' }}>
 
             <div className="flex items-center gap-2">
-              <Plus size={14} style={{ color: '#f59e0b' }} />
+              <Plus size={14} style={{ color: '#22d3ee' }} />
               <span className="text-sm font-mono font-semibold" style={{ color: 'var(--text-primary)' }}>
                 {activeProjectName ? 'Current Project' : 'New Project'}
               </span>
@@ -284,7 +289,7 @@ const UploadPage: React.FC = () => {
                 <button
                   onClick={handleCreateProject}
                   className="px-3 py-2 rounded-lg text-xs font-mono font-semibold transition-colors flex-shrink-0"
-                  style={{ background: 'rgba(245,158,11,0.15)', color: '#f59e0b', border: '1px solid rgba(245,158,11,0.3)' }}
+                  style={{ background: 'rgba(34,211,238,0.12)', color: '#22d3ee', border: '1px solid rgba(34,211,238,0.25)' }}
                   title={activeProjectName ? 'Rename project' : 'Create project'}
                 >
                   {activeProjectName === projectName.trim() ? <Check size={14} /> : <Plus size={14} />}
@@ -295,7 +300,7 @@ const UploadPage: React.FC = () => {
               )}
               {activeProjectName && (
                 <p className="text-[10px] font-mono" style={{ color: 'var(--text-muted)' }}>
-                  Active: <span style={{ color: '#f59e0b' }}>{activeProjectName}</span>
+                  Active: <span style={{ color: '#22d3ee' }}>{activeProjectName}</span>
                 </p>
               )}
             </div>
@@ -322,7 +327,7 @@ const UploadPage: React.FC = () => {
                   style={{
                     maxHeight: 220,
                     scrollbarWidth: 'thin',
-                    scrollbarColor: 'rgba(245,158,11,0.3) transparent',
+                    scrollbarColor: 'rgba(34,211,238,0.3) transparent',
                   }}
                 >
                   {looseFiles.map((file, idx) => (
@@ -350,7 +355,7 @@ const UploadPage: React.FC = () => {
             <p className="text-center text-[10px] font-mono" style={{ color: 'var(--text-disabled)' }}>
               No files? The editor loads with demo Ada code.{' '}
               <button onClick={handleContinue} className="underline transition-colors"
-                style={{ color: 'rgba(245,158,11,0.6)', background: 'none', border: 'none', cursor: 'pointer', fontSize: 10 }}>
+                style={{ color: 'rgba(34,211,238,0.55)', background: 'none', border: 'none', cursor: 'pointer', fontSize: 10 }}>
                 Skip to demo
               </button>
             </p>
@@ -359,7 +364,7 @@ const UploadPage: React.FC = () => {
           {/* ── Right: Recent Projects ─────────────────────────────────────── */}
           {projects.length > 0 && (
             <div className="flex flex-col gap-3 p-5 rounded-2xl"
-              style={{ background: 'rgba(22,22,26,0.95)', border: '1px solid #27272a' }}>
+              style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-default)' }}>
 
               <div className="flex items-center gap-2">
                 <Clock size={13} style={{ color: '#71717a' }} />

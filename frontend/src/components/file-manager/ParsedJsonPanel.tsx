@@ -199,13 +199,13 @@ export const ParsedJsonPanel: React.FC = () => {
     return (
       <div className="flex flex-col items-center justify-center h-full gap-4 p-6 text-center">
         <div className="w-12 h-12 rounded-xl flex items-center justify-center"
-          style={{ background: 'rgba(250,204,21,0.08)', border: '1px solid rgba(250,204,21,0.15)' }}>
-          <Zap size={22} style={{ color: '#facc15' }} />
+          style={{ background: 'rgba(34,211,238,0.08)', border: '1px solid rgba(34,211,238,0.15)' }}>
+          <Zap size={22} style={{ color: '#22d3ee' }} />
         </div>
         <div>
           <p className="text-sm font-mono font-semibold" style={{ color: '#e4e4e7' }}>No JSON yet</p>
           <p className="text-xs font-mono mt-1" style={{ color: '#52525b' }}>
-            Click any file in the <span style={{ color: '#facc15' }}>Files</span> tab<br />
+            Click any file in the <span style={{ color: '#22d3ee' }}>Files</span> tab<br />
             to parse it and generate its JSON
           </p>
         </div>
@@ -226,8 +226,8 @@ export const ParsedJsonPanel: React.FC = () => {
                   onClick={() => setActiveResult(r.fileId)}
                   className="px-3 py-2 text-[10px] font-mono whitespace-nowrap transition-colors border-b-2"
                   style={{
-                    color: activeResultFileId === r.fileId ? '#facc15' : '#52525b',
-                    borderBottomColor: activeResultFileId === r.fileId ? '#facc15' : 'transparent',
+                    color: activeResultFileId === r.fileId ? '#22d3ee' : '#52525b',
+                    borderBottomColor: activeResultFileId === r.fileId ? '#22d3ee' : 'transparent',
                     background: 'transparent',
                   }}
                 >
@@ -246,7 +246,7 @@ export const ParsedJsonPanel: React.FC = () => {
           </div>
         )}
         <div className="flex flex-col items-center justify-center flex-1 gap-3">
-          <Loader size={22} className="animate-spin" style={{ color: '#facc15' }} />
+          <Loader size={22} className="animate-spin" style={{ color: '#22d3ee' }} />
           <p className="text-sm font-mono font-semibold" style={{ color: '#e4e4e7' }}>
             Analyzing {activeFile?.name ?? 'file'}...
           </p>
@@ -290,15 +290,15 @@ export const ParsedJsonPanel: React.FC = () => {
         )}
         <div className="flex flex-col items-center justify-center flex-1 gap-4 p-6 text-center">
           <div className="w-12 h-12 rounded-xl flex items-center justify-center"
-            style={{ background: 'rgba(250,204,21,0.08)', border: '1px solid rgba(250,204,21,0.15)' }}>
-            <Zap size={22} style={{ color: '#facc15' }} />
+            style={{ background: 'rgba(34,211,238,0.08)', border: '1px solid rgba(34,211,238,0.15)' }}>
+            <Zap size={22} style={{ color: '#22d3ee' }} />
           </div>
           <div>
             <p className="text-sm font-mono font-semibold" style={{ color: '#e4e4e7' }}>
               {activeFile?.name ?? 'File'} — not parsed yet
             </p>
             <p className="text-xs font-mono mt-1" style={{ color: '#52525b' }}>
-              Click the file in the <span style={{ color: '#facc15' }}>Files</span> tab<br />
+              Click the file in the <span style={{ color: '#22d3ee' }}>Files</span> tab<br />
               to parse it and generate its JSON
             </p>
           </div>
@@ -318,8 +318,8 @@ export const ParsedJsonPanel: React.FC = () => {
                 onClick={() => setActiveResult(r.fileId)}
                 className="px-3 py-2 text-[10px] font-mono whitespace-nowrap transition-colors border-b-2"
                 style={{
-                  color: activeResultFileId === r.fileId ? '#facc15' : '#52525b',
-                  borderBottomColor: activeResultFileId === r.fileId ? '#facc15' : 'transparent',
+                  color: activeResultFileId === r.fileId ? '#22d3ee' : '#52525b',
+                  borderBottomColor: activeResultFileId === r.fileId ? '#22d3ee' : 'transparent',
                   background: 'transparent',
                 }}
               >
@@ -410,9 +410,9 @@ export const ParsedJsonPanel: React.FC = () => {
               onClick={handleReParse}
               disabled={reparsing}
               className="p-1.5 rounded transition-colors"
-              style={{ color: reparsing ? '#facc15' : '#52525b' }}
+              style={{ color: reparsing ? '#22d3ee' : '#52525b' }}
               title="Re-parse with latest analyzer (gets fresh types, no duplicates)"
-              onMouseEnter={(e) => { if (!reparsing) (e.currentTarget as HTMLButtonElement).style.color = '#facc15'; }}
+              onMouseEnter={(e) => { if (!reparsing) (e.currentTarget as HTMLButtonElement).style.color = '#22d3ee'; }}
               onMouseLeave={(e) => { if (!reparsing) (e.currentTarget as HTMLButtonElement).style.color = '#52525b'; }}
             >
               {reparsing ? <Loader size={13} className="animate-spin" /> : <RefreshCw size={13} />}
@@ -432,7 +432,7 @@ export const ParsedJsonPanel: React.FC = () => {
               className="p-1.5 rounded transition-colors"
               style={{ color: '#52525b' }}
               title="Download JSON"
-              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = '#facc15'; }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = '#22d3ee'; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = '#52525b'; }}
             >
               <Download size={13} />
@@ -443,7 +443,7 @@ export const ParsedJsonPanel: React.FC = () => {
           {isStaleJson && (
             <div
               className="flex items-center gap-2 px-3 py-2 flex-shrink-0 text-[10px] font-mono"
-              style={{ background: 'rgba(245,158,11,0.1)', borderBottom: '1px solid rgba(245,158,11,0.25)', color: '#f59e0b' }}
+              style={{ background: 'rgba(34,211,238,0.1)', borderBottom: '1px solid rgba(34,211,238,0.25)', color: '#22d3ee' }}
             >
               <AlertCircle size={12} className="flex-shrink-0" />
               <span className="flex-1">Stale data — duplicate subprograms at same line. Re-parse to get fresh analysis.</span>
@@ -451,7 +451,7 @@ export const ParsedJsonPanel: React.FC = () => {
                 onClick={handleReParse}
                 disabled={reparsing}
                 className="flex items-center gap-1 px-2 py-0.5 rounded text-[9px] font-mono font-semibold transition-all flex-shrink-0"
-                style={{ background: 'rgba(245,158,11,0.2)', border: '1px solid rgba(245,158,11,0.4)', color: '#f59e0b', cursor: reparsing ? 'not-allowed' : 'pointer' }}
+                style={{ background: 'rgba(34,211,238,0.2)', border: '1px solid rgba(34,211,238,0.4)', color: '#22d3ee', cursor: reparsing ? 'not-allowed' : 'pointer' }}
               >
                 {reparsing ? <Loader size={10} className="animate-spin" /> : <RefreshCw size={10} />}
                 {reparsing ? 'Re-parsing...' : 'Re-parse now'}
@@ -469,11 +469,11 @@ export const ParsedJsonPanel: React.FC = () => {
                 return (
                   <div className="flex-1 flex flex-col items-center justify-center gap-4 p-6 text-center">
                     <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.25)' }}>
+                      style={{ background: 'rgba(34,211,238,0.1)', border: '1px solid rgba(34,211,238,0.25)' }}>
                       <span style={{ fontSize: 28 }}>📋</span>
                     </div>
                     <div>
-                      <p className="text-sm font-mono font-semibold" style={{ color: '#f59e0b' }}>
+                      <p className="text-sm font-mono font-semibold" style={{ color: '#22d3ee' }}>
                         Spec file (.ads) — No JSON generated
                       </p>
                       <p className="text-xs font-mono mt-2" style={{ color: '#71717a', maxWidth: 340, lineHeight: 1.6 }}>
@@ -486,8 +486,8 @@ export const ParsedJsonPanel: React.FC = () => {
                       </p>
                     </div>
                     <div className="px-3 py-2 rounded-lg text-xs font-mono text-left"
-                      style={{ background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.15)', color: '#a0a0a0', maxWidth: 360 }}>
-                      <span style={{ color: '#f59e0b' }}>Tip:</span> When you upload both{' '}
+                      style={{ background: 'rgba(34,211,238,0.06)', border: '1px solid rgba(34,211,238,0.15)', color: '#a0a0a0', maxWidth: 360 }}>
+                      <span style={{ color: '#22d3ee' }}>Tip:</span> When you upload both{' '}
                       <code style={{ color: '#4ade80' }}>{activeResult.fileName}</code> and{' '}
                       <code style={{ color: '#4ade80' }}>{bodyName}</code> together,
                       the params from the spec are automatically merged into the body&apos;s analysis — giving you accurate
@@ -520,7 +520,7 @@ export const ParsedJsonPanel: React.FC = () => {
           <div className="flex-1 overflow-hidden">
             <Suspense fallback={
               <div className="flex items-center justify-center h-full">
-                <div className="w-5 h-5 border-2 border-t-transparent rounded-full spin" style={{ borderColor: '#facc15' }} />
+                <div className="w-5 h-5 border-2 border-t-transparent rounded-full spin" style={{ borderColor: '#22d3ee' }} />
               </div>
             }>
               <MonacoEditor
@@ -589,24 +589,24 @@ export const ParsedJsonPanel: React.FC = () => {
               disabled={generating || !!jsonError}
               className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg font-mono font-semibold text-sm transition-all"
               style={{
-                background: generating || jsonError ? 'rgba(250,204,21,0.08)' : 'rgba(250,204,21,0.15)',
-                color: generating || jsonError ? '#52525b' : '#facc15',
-                border: `1px solid ${generating || jsonError ? '#2a2a2a' : 'rgba(250,204,21,0.4)'}`,
+                background: generating || jsonError ? 'rgba(34,211,238,0.08)' : 'rgba(34,211,238,0.15)',
+                color: generating || jsonError ? '#52525b' : '#22d3ee',
+                border: `1px solid ${generating || jsonError ? '#2a2a2a' : 'rgba(34,211,238,0.4)'}`,
                 cursor: generating || jsonError ? 'not-allowed' : 'pointer',
               }}
               onMouseEnter={(e) => {
                 if (!generating && !jsonError) {
-                  (e.currentTarget as HTMLButtonElement).style.background = 'rgba(250,204,21,0.22)';
+                  (e.currentTarget as HTMLButtonElement).style.background = 'rgba(34,211,238,0.22)';
                 }
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLButtonElement).style.background =
-                  generating || jsonError ? 'rgba(250,204,21,0.08)' : 'rgba(250,204,21,0.15)';
+                  generating || jsonError ? 'rgba(34,211,238,0.08)' : 'rgba(34,211,238,0.15)';
               }}
             >
               {generating ? (
                 <>
-                  <span className="w-4 h-4 border-2 border-t-transparent rounded-full spin" style={{ borderColor: '#facc15' }} />
+                  <span className="w-4 h-4 border-2 border-t-transparent rounded-full spin" style={{ borderColor: '#22d3ee' }} />
                   Generating tests...
                 </>
               ) : (

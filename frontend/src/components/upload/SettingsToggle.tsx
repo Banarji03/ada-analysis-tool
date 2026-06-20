@@ -80,7 +80,7 @@ export const SettingsToggle: React.FC = () => {
             <div className="flex gap-2 flex-wrap">
               {([
                 { id: 'ada-purple', label: 'Purple', dot: '#c586c0' },
-                { id: 'ada-dark',   label: 'Amber',  dot: '#f59e0b' },
+                { id: 'ada-dark',   label: 'Amber',  dot: '#22d3ee' },
                 { id: 'ada-soft',   label: 'Soft',   dot: '#fbbf24' },
               ] as const).map((t) => (
                 <button

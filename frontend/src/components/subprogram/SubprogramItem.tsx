@@ -18,7 +18,7 @@ interface SubprogramItemProps {
 
 const complexityColor = (lines: number) => {
   if (lines <= 10) return 'text-green-400';
-  if (lines <= 25) return 'text-amber-400';
+  if (lines <= 25) return 'text-cyan-400';
   return 'text-red-400';
 };
 
@@ -57,7 +57,7 @@ export const SubprogramItem: React.FC<SubprogramItemProps> = ({
     return (
       <>
         <span>{name.slice(0, idx)}</span>
-        <span className="bg-amber-500/30 text-amber-300 rounded-sm px-0.5">{name.slice(idx, idx + query.length)}</span>
+        <span className="bg-cyan-500/25 text-cyan-300 rounded-sm px-0.5">{name.slice(idx, idx + query.length)}</span>
         <span>{name.slice(idx + query.length)}</span>
       </>
     );
@@ -88,10 +88,10 @@ export const SubprogramItem: React.FC<SubprogramItemProps> = ({
     <div
       className={`group transition-all border-l-2 ${
         isSelected
-          ? 'border-amber-500 bg-amber-500/5'
+          ? 'border-cyan-500 bg-cyan-500/5'
           : isCursorInside
           ? 'border-blue-500/50 bg-blue-500/5'
-          : 'border-transparent hover:bg-zinc-800/40 hover:border-zinc-700'
+          : 'border-transparent hover:bg-slate-800/40 hover:border-slate-700'
       }`}
     >
       {/* Main row */}
@@ -110,7 +110,7 @@ export const SubprogramItem: React.FC<SubprogramItemProps> = ({
 
         {/* Kind icon */}
         {subprogram.kind === 'procedure' ? (
-          <Zap size={12} className={`flex-shrink-0 ${isSelected ? 'text-amber-400' : 'text-amber-500/70'}`} />
+          <Zap size={12} className={`flex-shrink-0 ${isSelected ? 'text-cyan-400' : 'text-cyan-500/70'}`} />
         ) : (
           <FunctionSquare size={12} className={`flex-shrink-0 ${isSelected ? 'text-orange-400' : 'text-orange-500/70'}`} />
         )}
@@ -118,7 +118,7 @@ export const SubprogramItem: React.FC<SubprogramItemProps> = ({
         {/* Name */}
         <span
           className={`text-xs font-mono font-semibold flex-1 truncate ${
-            isSelected ? 'text-amber-300' : isCursorInside ? 'text-blue-300' : 'text-zinc-200'
+            isSelected ? 'text-cyan-300' : isCursorInside ? 'text-blue-300' : 'text-zinc-200'
           }`}
         >
           {highlightName(subprogram.name, searchQuery)}
@@ -133,7 +133,7 @@ export const SubprogramItem: React.FC<SubprogramItemProps> = ({
         <button
           onClick={(e) => { e.stopPropagation(); togglePin(subprogram.id); }}
           title={subprogram.pinned ? 'Unpin' : 'Pin to top'}
-          className={`flex-shrink-0 transition-colors ${subprogram.pinned ? 'text-amber-400' : 'text-zinc-700 hover:text-zinc-400 opacity-0 group-hover:opacity-100'}`}
+          className={`flex-shrink-0 transition-colors ${subprogram.pinned ? 'text-cyan-400' : 'text-zinc-700 hover:text-zinc-400 opacity-0 group-hover:opacity-100'}`}
         >
           {subprogram.pinned ? <PinOff size={10} /> : <Pin size={10} />}
         </button>
@@ -146,7 +146,7 @@ export const SubprogramItem: React.FC<SubprogramItemProps> = ({
         {/* Test status */}
         {testCount > 0 && (
           <span className="flex items-center gap-0.5 text-[10px] font-mono flex-shrink-0">
-            <TestTube size={9} className="text-amber-500" />
+            <TestTube size={9} className="text-cyan-500" />
             {failCount > 0 ? (
               <span className="text-red-400">{failCount}✗</span>
             ) : passCount > 0 ? (
@@ -172,7 +172,7 @@ export const SubprogramItem: React.FC<SubprogramItemProps> = ({
             </span>
             <button
               onClick={handleClick}
-              className="ml-auto text-[9px] font-mono text-amber-500/70 hover:text-amber-400 transition-colors"
+              className="ml-auto text-[9px] font-mono text-cyan-500/70 hover:text-cyan-400 transition-colors"
             >
               → Go to line {subprogram.startLine}
             </button>

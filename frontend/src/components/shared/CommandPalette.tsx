@@ -40,7 +40,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ open, onClose })
         id: `file_${f.id}`,
         label: f.name,
         description: f.type === 'spec' ? 'Ada Specification' : 'Ada Body',
-        icon: <FileCode size={14} className="text-amber-400" />,
+        icon: <FileCode size={14} className="text-cyan-400" />,
         category: 'file',
         action: () => { setActiveFile(f.id); openTab(f.id); setActiveTab('code'); },
       });
@@ -53,7 +53,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ open, onClose })
         label: s.name,
         description: `${s.kind} · ${s.parameters.length} params${s.returnType ? ` → ${s.returnType}` : ''}`,
         icon: s.kind === 'procedure'
-          ? <Zap size={14} className="text-amber-400" />
+          ? <Zap size={14} className="text-cyan-400" />
           : <FunctionSquare size={14} className="text-orange-400" />,
         category: 'subprogram',
         action: () => { selectSubprogram(s.id); setActiveTab('tests'); },
@@ -88,21 +88,21 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ open, onClose })
       {
         id: 'action_code',
         label: 'Switch to Code View',
-        icon: <FileCode size={14} className="text-zinc-400" />,
+        icon: <FileCode size={14} className="text-slate-400" />,
         category: 'action',
         action: () => setActiveTab('code'),
       },
       {
         id: 'action_gen_all',
         label: 'Generate Tests for All Subprograms',
-        icon: <TestTube size={14} className="text-amber-400" />,
+        icon: <TestTube size={14} className="text-cyan-400" />,
         category: 'action',
         action: () => subprograms.forEach((s) => generateTests(s)),
       },
       {
         id: 'action_settings',
         label: 'Open Settings',
-        icon: <Settings size={14} className="text-zinc-400" />,
+        icon: <Settings size={14} className="text-slate-400" />,
         shortcut: 'Ctrl+,',
         category: 'action',
         action: () => {},
@@ -172,16 +172,16 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ open, onClose })
       >
         {/* Search input */}
         <div className="flex items-center gap-3 px-4 py-3 border-b" style={{ borderColor: 'var(--border-default)' }}>
-          <Search size={16} className="text-zinc-500 flex-shrink-0" />
+          <Search size={16} className="text-slate-500 flex-shrink-0" />
           <input
             ref={inputRef}
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search files, subprograms, actions..."
-            className="flex-1 bg-transparent text-sm text-zinc-200 placeholder-zinc-600 focus:outline-none font-mono"
+            className="flex-1 bg-transparent text-sm text-slate-200 placeholder-zinc-600 focus:outline-none font-mono"
           />
-          <kbd className="text-[10px] font-mono text-zinc-600 bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700">
+          <kbd className="text-[10px] font-mono text-slate-600 bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700">
             ESC
           </kbd>
         </div>
@@ -189,7 +189,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ open, onClose })
         {/* Results */}
         <div ref={listRef} className="overflow-y-auto" style={{ maxHeight: 360 }}>
           {filtered.length === 0 ? (
-            <p className="text-center text-xs font-mono text-zinc-600 py-8">No results for "{query}"</p>
+            <p className="text-center text-xs font-mono text-slate-600 py-8">No results for "{query}"</p>
           ) : (
             filtered.map((cmd, i) => {
               const showCategory = cmd.category !== lastCategory;
@@ -197,25 +197,25 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ open, onClose })
               return (
                 <React.Fragment key={cmd.id}>
                   {showCategory && (
-                    <p className="px-4 pt-2 pb-1 text-[9px] font-mono text-zinc-600 uppercase tracking-widest">
+                    <p className="px-4 pt-2 pb-1 text-[9px] font-mono text-slate-600 uppercase tracking-widest">
                       {categoryLabel[cmd.category]}
                     </p>
                   )}
                   <div
                     onClick={() => { cmd.action(); onClose(); }}
                     className={`flex items-center gap-3 px-4 py-2.5 cursor-pointer transition-colors ${
-                      i === selected ? 'bg-amber-500/10 text-zinc-100' : 'text-zinc-400 hover:bg-zinc-800/50'
+                      i === selected ? 'bg-cyan-500/10 text-zinc-100' : 'text-slate-400 hover:bg-slate-800/50'
                     }`}
                   >
                     <span className="flex-shrink-0">{cmd.icon}</span>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-mono truncate">{cmd.label}</p>
                       {cmd.description && (
-                        <p className="text-[10px] text-zinc-600 truncate">{cmd.description}</p>
+                        <p className="text-[10px] text-slate-600 truncate">{cmd.description}</p>
                       )}
                     </div>
                     {cmd.shortcut && (
-                      <kbd className="text-[9px] font-mono text-zinc-600 bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700 flex-shrink-0">
+                      <kbd className="text-[9px] font-mono text-slate-600 bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700 flex-shrink-0">
                         {cmd.shortcut}
                       </kbd>
                     )}
@@ -228,8 +228,8 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ open, onClose })
 
         <div className="px-4 py-2 border-t flex items-center gap-4" style={{ borderColor: 'var(--border-default)' }}>
           {[['↑↓', 'navigate'], ['↵', 'select'], ['esc', 'close']].map(([key, label]) => (
-            <span key={key} className="flex items-center gap-1 text-[10px] font-mono text-zinc-600">
-              <kbd className="bg-zinc-800 border border-zinc-700 px-1 rounded">{key}</kbd> {label}
+            <span key={key} className="flex items-center gap-1 text-[10px] font-mono text-slate-600">
+              <kbd className="bg-slate-800 border border-slate-700 px-1 rounded">{key}</kbd> {label}
             </span>
           ))}
         </div>

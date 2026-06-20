@@ -32,7 +32,7 @@ const SubRow: React.FC<{
   const lineCount = sub.endLine - sub.startLine + 1;
   // Simple complexity: 1-3 green, 4-8 amber, 9+ red
   const complexity = lineCount <= 15 ? 'low' : lineCount <= 40 ? 'med' : 'high';
-  const complexityColor = { low: '#4ade80', med: '#facc15', high: '#f87171' }[complexity];
+  const complexityColor = { low: '#4ade80', med: '#22d3ee', high: '#f87171' }[complexity];
 
   const handleClick = () => {
     selectSubprogram(sub.id);
@@ -64,7 +64,7 @@ const SubRow: React.FC<{
     return (
       <>
         {sub.name.slice(0, idx)}
-        <span style={{ background: 'rgba(250,204,21,0.35)', color: '#fde047', borderRadius: 2, padding: '0 1px' }}>
+        <span style={{ background: 'rgba(34,211,238,0.35)', color: '#fde047', borderRadius: 2, padding: '0 1px' }}>
           {sub.name.slice(idx, idx + searchQuery.length)}
         </span>
         {sub.name.slice(idx + searchQuery.length)}
@@ -78,20 +78,20 @@ const SubRow: React.FC<{
       onContextMenu={(e) => { e.preventDefault(); selectSubprogram(sub.id); onContextMenu(e, sub.id); }}
       className="flex items-center gap-2 px-3 py-1.5 cursor-pointer transition-all select-none group"
       style={{
-        background: isActive ? 'rgba(250,204,21,0.12)' : isCursor ? 'rgba(250,204,21,0.05)' : 'transparent',
-        borderLeft: isActive ? '2px solid #facc15' : isCursor ? '2px solid rgba(250,204,21,0.4)' : '2px solid transparent',
+        background: isActive ? 'rgba(34,211,238,0.12)' : isCursor ? 'rgba(34,211,238,0.05)' : 'transparent',
+        borderLeft: isActive ? '2px solid #22d3ee' : isCursor ? '2px solid rgba(34,211,238,0.4)' : '2px solid transparent',
       }}
       onMouseEnter={(e) => {
         if (!isActive) (e.currentTarget as HTMLDivElement).style.background = 'rgba(255,255,255,0.04)';
       }}
       onMouseLeave={(e) => {
-        if (!isActive) (e.currentTarget as HTMLDivElement).style.background = isCursor ? 'rgba(250,204,21,0.05)' : 'transparent';
+        if (!isActive) (e.currentTarget as HTMLDivElement).style.background = isCursor ? 'rgba(34,211,238,0.05)' : 'transparent';
       }}
     >
       {/* Kind icon — ƒ for function, ⚡ for procedure */}
       <span
         className="flex-shrink-0 text-[11px] font-mono w-3 text-center"
-        style={{ color: sub.kind === 'function' ? '#fb923c' : '#facc15', opacity: 0.85 }}
+        style={{ color: sub.kind === 'function' ? '#fb923c' : '#22d3ee', opacity: 0.85 }}
         title={sub.kind === 'function' ? `function — returns ${sub.returnType || 'value'}` : 'procedure'}
       >
         {sub.kind === 'function' ? 'ƒ' : '⚡'}
@@ -107,7 +107,7 @@ const SubRow: React.FC<{
       {/* Name */}
       <span
         className="flex-1 text-xs font-mono truncate"
-        style={{ color: isActive ? '#facc15' : '#e4e4e7' }}
+        style={{ color: isActive ? '#22d3ee' : '#e4e4e7' }}
       >
         {renderName()}
       </span>
@@ -117,8 +117,8 @@ const SubRow: React.FC<{
         <span
           className="text-[9px] font-mono px-1 rounded flex-shrink-0"
           style={{
-            background: failCount > 0 ? 'rgba(248,113,113,0.15)' : passCount === testCount ? 'rgba(74,222,128,0.15)' : 'rgba(250,204,21,0.15)',
-            color: failCount > 0 ? '#f87171' : passCount === testCount ? '#4ade80' : '#facc15',
+            background: failCount > 0 ? 'rgba(248,113,113,0.15)' : passCount === testCount ? 'rgba(74,222,128,0.15)' : 'rgba(34,211,238,0.15)',
+            color: failCount > 0 ? '#f87171' : passCount === testCount ? '#4ade80' : '#22d3ee',
           }}
           title={`${testCount} tests · ${passCount} pass · ${failCount} fail`}
         >
@@ -200,7 +200,7 @@ export const SubprogramExplorer: React.FC = () => {
         className="flex items-center justify-between px-3 py-2 flex-shrink-0"
         style={{ borderBottom: '1px solid #1c1c1c' }}
       >
-        <span className="text-[10px] font-mono font-bold uppercase tracking-widest" style={{ color: '#facc15' }}>
+        <span className="text-[10px] font-mono font-bold uppercase tracking-widest" style={{ color: '#22d3ee' }}>
           Subprograms
         </span>
         <div className="flex items-center gap-2">
@@ -209,9 +209,9 @@ export const SubprogramExplorer: React.FC = () => {
             onClick={() => setNoTestsOnly((v) => !v)}
             className="text-[9px] font-mono px-1.5 py-0.5 rounded transition-colors"
             style={{
-              background: noTestsOnly ? 'rgba(250,204,21,0.15)' : '#1c1c1c',
-              color: noTestsOnly ? '#facc15' : '#52525b',
-              border: `1px solid ${noTestsOnly ? '#facc15' : '#2a2a2a'}`,
+              background: noTestsOnly ? 'rgba(34,211,238,0.15)' : '#1c1c1c',
+              color: noTestsOnly ? '#22d3ee' : '#52525b',
+              border: `1px solid ${noTestsOnly ? '#22d3ee' : '#2a2a2a'}`,
             }}
             title="Show only subprograms with no tests"
           >
@@ -229,7 +229,7 @@ export const SubprogramExplorer: React.FC = () => {
             className="text-[9px] font-mono px-1.5 py-0.5 rounded transition-colors"
             style={{ background: '#1c1c1c', color: '#52525b', border: '1px solid #2a2a2a' }}
             title="Generate tests for all subprograms"
-            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = '#facc15'; }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = '#22d3ee'; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = '#52525b'; }}
           >
             gen all
@@ -257,7 +257,7 @@ export const SubprogramExplorer: React.FC = () => {
             className="w-full pl-7 pr-6 py-1.5 text-xs font-mono rounded focus:outline-none transition-all"
             style={{
               background: '#141414',
-              border: `1px solid ${search ? '#facc15' : '#2a2a2a'}`,
+              border: `1px solid ${search ? '#22d3ee' : '#2a2a2a'}`,
               color: '#e4e4e7',
             }}
           />
@@ -290,19 +290,19 @@ export const SubprogramExplorer: React.FC = () => {
                 onClick={() => setActiveKind(kind)}
                 className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[10px] font-mono font-semibold uppercase tracking-wider transition-all"
                 style={{
-                  background: isActive ? 'rgba(250,204,21,0.08)' : 'transparent',
-                  color: isActive ? '#facc15' : '#52525b',
-                  borderBottom: isActive ? '2px solid #facc15' : '2px solid transparent',
+                  background: isActive ? 'rgba(34,211,238,0.08)' : 'transparent',
+                  color: isActive ? '#22d3ee' : '#52525b',
+                  borderBottom: isActive ? '2px solid #22d3ee' : '2px solid transparent',
                 }}
               >
                 <span
                   className="w-1.5 h-1.5 rounded-full"
-                  style={{ background: kind === 'procedures' ? '#facc15' : '#fb923c' }}
+                  style={{ background: kind === 'procedures' ? '#22d3ee' : '#fb923c' }}
                 />
                 {kind}
                 <span
                   className="text-[9px] px-1 rounded"
-                  style={{ background: '#1c1c1c', color: isActive ? '#facc15' : '#3f3f46' }}
+                  style={{ background: '#1c1c1c', color: isActive ? '#22d3ee' : '#3f3f46' }}
                 >
                   {count}
                 </span>
@@ -316,7 +316,7 @@ export const SubprogramExplorer: React.FC = () => {
       <div className="flex-1 overflow-y-auto">
         {isParsing && subprograms.length === 0 ? (
           <div className="flex flex-col items-center justify-center gap-3 py-10">
-            <div className="w-5 h-5 rounded-full border-2 border-t-transparent spin" style={{ borderColor: '#facc15', borderTopColor: 'transparent' }} />
+            <div className="w-5 h-5 rounded-full border-2 border-t-transparent spin" style={{ borderColor: '#22d3ee', borderTopColor: 'transparent' }} />
             <p className="text-xs font-mono" style={{ color: '#52525b' }}>Parsing Ada files...</p>
           </div>
         ) : subprograms.length === 0 ? (
@@ -333,7 +333,7 @@ export const SubprogramExplorer: React.FC = () => {
                 count={procedures.length}
                 open={procOpen}
                 onToggle={() => setProcOpen((v) => !v)}
-                color="#facc15"
+                color="#22d3ee"
               >
                 {procedures.map((s) => (
                   <SubRow key={s.id} sub={s} isActive={selectedSubprogramId === s.id} isCursor={cursorSubId === s.id} searchQuery={search} onContextMenu={handleContextMenu} />
@@ -385,11 +385,11 @@ export const SubprogramExplorer: React.FC = () => {
         {cursorSubId && (
           <div
             className="mx-3 my-2 px-2.5 py-1.5 rounded text-[10px] font-mono flex items-center gap-2"
-            style={{ background: 'rgba(250,204,21,0.06)', border: '1px solid rgba(250,204,21,0.15)' }}
+            style={{ background: 'rgba(34,211,238,0.06)', border: '1px solid rgba(34,211,238,0.15)' }}
           >
-            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: '#facc15' }} />
+            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: '#22d3ee' }} />
             <span style={{ color: '#52525b' }}>Cursor in:</span>
-            <span className="font-semibold" style={{ color: '#facc15' }}>
+            <span className="font-semibold" style={{ color: '#22d3ee' }}>
               {subprograms.find((s) => s.id === cursorSubId)?.name}
             </span>
             <span className="ml-auto" style={{ color: '#3f3f46' }}>L{currentLine}</span>

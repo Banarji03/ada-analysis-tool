@@ -72,7 +72,7 @@ export const TestRunner: React.FC = () => {
             className="h-full rounded-full transition-all duration-500"
             style={{
               width: `${passRate}%`,
-              background: passRate >= 80 ? '#22c55e' : passRate >= 50 ? '#f59e0b' : '#ef4444',
+              background: passRate >= 80 ? '#22c55e' : passRate >= 50 ? '#22d3ee' : '#ef4444',
             }}
           />
         </div>

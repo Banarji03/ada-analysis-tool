@@ -867,10 +867,10 @@ const TestStudioInputs: React.FC<{ subpName: string; analysis: AdaAnalysisResult
 
   return (
     <div className="ts-dark border rounded-lg overflow-hidden flex-shrink-0 mb-3"
-      style={{ borderColor: 'rgba(245,158,11,0.2)', background: 'rgba(245,158,11,0.03)' }}>
+      style={{ borderColor: 'rgba(34,211,238,0.2)', background: 'rgba(34,211,238,0.03)' }}>
 
       {/* Header */}
-      <div style={{ padding: '10px 14px 6px', borderBottom: '0.5px solid rgba(250,204,21,0.15)' }}>
+      <div style={{ padding: '10px 14px 6px', borderBottom: '0.5px solid rgba(34,211,238,0.15)' }}>
         <div style={{ fontSize: 14, fontWeight: 600, color: '#e4e4e7' }}>{studioSubp.name}</div>
         <div style={{ fontSize: 11, color: '#71717a', display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 3, alignItems: 'center' }}>
           <span>{studioSubp.file_name}</span>
@@ -881,14 +881,14 @@ const TestStudioInputs: React.FC<{ subpName: string; analysis: AdaAnalysisResult
       </div>
 
       {/* Tabs */}
-      <div style={{ display: 'flex', borderBottom: '0.5px solid rgba(250,204,21,0.15)' }}>
+      <div style={{ display: 'flex', borderBottom: '0.5px solid rgba(34,211,238,0.15)' }}>
         {(['inputs','variables','history'] as const).map(tab => (
           <button key={tab}
             onClick={() => setActiveTab(tab)}
             style={{
               padding: '7px 14px', fontSize: 12, cursor: 'pointer', background: 'none', border: 'none',
-              borderBottom: activeTab === tab ? '2px solid #f59e0b' : '2px solid transparent',
-              color: activeTab === tab ? '#f59e0b' : '#71717a', fontWeight: activeTab === tab ? 600 : 400,
+              borderBottom: activeTab === tab ? '2px solid #22d3ee' : '2px solid transparent',
+              color: activeTab === tab ? '#22d3ee' : '#71717a', fontWeight: activeTab === tab ? 600 : 400,
             }}>
             {tab}
             {tab === 'history' && history.length > 0 &&
@@ -1104,16 +1104,16 @@ const TestStudioInputs: React.FC<{ subpName: string; analysis: AdaAnalysisResult
                     const displayVal = declaredVal && declaredVal !== 'null' && declaredVal !== 'None'
                       ? declaredVal : typeDefault(v.type, v.name);
                     return (
-                    <div key={i} className="ts-input-card" style={{ borderColor: 'rgba(245,158,11,0.3)', background: 'rgba(245,158,11,0.05)' }}>
+                    <div key={i} className="ts-input-card" style={{ borderColor: 'rgba(34,211,238,0.3)', background: 'rgba(34,211,238,0.05)' }}>
                       <div className="ts-input-header">
-                        <span className="ts-input-dir" style={{ background: 'rgba(245,158,11,0.2)', color: '#f59e0b', fontSize: 9 }}>const</span>
+                        <span className="ts-input-dir" style={{ background: 'rgba(34,211,238,0.2)', color: '#22d3ee', fontSize: 9 }}>const</span>
                         <span className="ts-input-name">{v.name}</span>
                       </div>
                       <div className="ts-input-type ts-mono">{v.type} <CaseBadge type={v.type} /></div>
                       <input className="ts-input-field ts-mono"
                         value={displayVal}
                         readOnly
-                        style={{ opacity: 0.7, cursor: 'default', borderColor: 'rgba(245,158,11,0.3)' }}
+                        style={{ opacity: 0.7, cursor: 'default', borderColor: 'rgba(34,211,238,0.3)' }}
                         title={`Constant — declared value: ${displayVal}`} />
                     </div>
                     );
@@ -1261,7 +1261,7 @@ const TestStudioInputs: React.FC<{ subpName: string; analysis: AdaAnalysisResult
               {(['local','global','constant'] as const).map(scope => {
                 const count = studioSubp.variables.filter(v => v.scope === scope).length;
                 if (count === 0) return null;
-                const colors: Record<string,string> = { local:'#a5b4fc', global:'#fbbf24', constant:'#f59e0b' };
+                const colors: Record<string,string> = { local:'#a5b4fc', global:'#fbbf24', constant:'#22d3ee' };
                 return (
                   <span key={scope} style={{ fontSize: 10, fontFamily: 'monospace', padding: '2px 8px', borderRadius: 4,
                     background: `rgba(${scope==='local'?'99,102,241':scope==='global'?'251,191,36':'245,158,11'},0.12)`,
@@ -1293,7 +1293,7 @@ const TestStudioInputs: React.FC<{ subpName: string; analysis: AdaAnalysisResult
                     const displayInit = iv && iv !== 'null' && iv !== 'None'
                       ? iv : typeDefault(v.type, v.name);
                     const scopeColors: Record<string, string> = {
-                      local: '#a5b4fc', global: '#fbbf24', constant: '#f59e0b'
+                      local: '#a5b4fc', global: '#fbbf24', constant: '#22d3ee'
                     };
                     return (
                     <tr key={i}>
@@ -1510,7 +1510,7 @@ export const TestCasePanel: React.FC = () => {
         {/* Subprogram selector */}
         <div className="flex items-center gap-2 px-3 py-2 border-b flex-shrink-0" style={{ borderColor: 'var(--border-default)' }}>
           <select value={selectedSubprogramId??''} onChange={e => selectSubprogram(e.target.value||null)}
-            className="flex-1 px-2 py-1 text-xs font-mono rounded bg-zinc-800 border border-zinc-700 text-zinc-200 focus:outline-none focus:border-amber-500/50">
+            className="flex-1 px-2 py-1 text-xs font-mono rounded bg-zinc-800 border border-zinc-700 text-zinc-200 focus:outline-none focus:border-cyan-500/50">
             <option value="">— Select subprogram —</option>
             {subprograms.map(s => (
               <option key={s.id} value={s.id}>{s.kind==='function'?'ƒ':'⚡'} {s.name}</option>

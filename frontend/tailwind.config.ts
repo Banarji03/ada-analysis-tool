@@ -6,23 +6,23 @@ const config: Config = {
     extend: {
       fontFamily: {
         mono: ['"JetBrains Mono"', 'monospace'],
-        sans: ['"IBM Plex Sans"', 'sans-serif'],
+        sans: ['"Inter"', 'sans-serif'],
       },
       colors: {
-        'bg-base': '#0a0a0a',
-        'bg-surface': '#111111',
-        'bg-elevated': '#1a1a1a',
-        'bg-hover': '#222222',
-        'accent-primary': '#facc15',
-        'accent-secondary': '#fb923c',
-        'accent-success': '#22c55e',
-        'accent-danger': '#ef4444',
-        'accent-warning': '#eab308',
-        'text-primary': '#e4e4e7',
-        'text-secondary': '#a1a1aa',
-        'text-muted': '#52525b',
-        'border-default': '#1c1c1c',
-        'border-active': '#facc15',
+        'bg-base':     '#0b0f1a',
+        'bg-surface':  '#0f1623',
+        'bg-elevated': '#141d2e',
+        'bg-hover':    '#1a2438',
+        'accent-primary':   '#22d3ee',   // cyan-400
+        'accent-secondary': '#818cf8',   // indigo-400
+        'accent-success':   '#34d399',   // emerald-400
+        'accent-danger':    '#f87171',   // red-400
+        'accent-warning':   '#fb923c',   // orange-400
+        'text-primary':     '#e2e8f0',
+        'text-secondary':   '#94a3b8',
+        'text-muted':       '#475569',
+        'border-default':   '#1e2d45',
+        'border-active':    '#22d3ee',
       },
     },
   },

@@ -148,26 +148,26 @@ export const FileDropzone: React.FC = () => {
         {...getRootProps()}
         className={`relative border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all duration-200 ${
           isDragActive
-            ? 'border-amber-500 dropzone-active'
-            : 'border-zinc-700 hover:border-amber-500/60 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)]'
+            ? 'border-cyan-400 dropzone-active'
+            : 'border-slate-700 hover:border-cyan-500/50 hover:shadow-[0_0_20px_rgba(34,211,238,0.07)]'
         }`}
       >
         <input {...getInputProps()} />
         <div className="flex flex-col items-center gap-3">
-          <div className={`p-3 rounded-full transition-colors ${isDragActive ? 'bg-amber-500/20' : 'bg-zinc-800'}`}>
+          <div className={`p-3 rounded-full transition-colors ${isDragActive ? 'bg-cyan-500/15' : 'bg-slate-800'}`}>
             {isDragActive ? (
-              <FileCode size={26} className="text-amber-400" />
+              <FileCode size={26} className="text-cyan-400" />
             ) : (
-              <Upload size={26} className="text-zinc-400" />
+              <Upload size={26} className="text-slate-400" />
             )}
           </div>
           <div>
-            <p className="text-zinc-200 font-medium text-sm">
+            <p className="text-slate-200 font-medium text-sm">
               {isDragActive ? 'Drop here' : 'Drag & drop .adb or .ads files'}
             </p>
-            <p className="text-zinc-500 text-xs mt-1">or click to browse individual files</p>
+            <p className="text-slate-500 text-xs mt-1">or click to browse individual files</p>
           </div>
-          <p className="text-zinc-600 text-xs font-mono">
+          <p className="text-slate-600 text-xs font-mono">
             Accepts: .ads (specification) · .adb (body)
           </p>
         </div>
@@ -177,7 +177,7 @@ export const FileDropzone: React.FC = () => {
       <button
         type="button"
         onClick={() => folderInputRef.current?.click()}
-        className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-dashed border-zinc-700 text-zinc-500 text-xs font-medium hover:border-amber-500/50 hover:text-amber-400 hover:bg-amber-500/5 transition-all"
+        className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-dashed border-slate-700 text-slate-500 text-xs font-medium hover:border-cyan-500/40 hover:text-cyan-400 hover:bg-cyan-500/5 transition-all"
       >
         <FolderOpen size={14} />
         Upload entire folder

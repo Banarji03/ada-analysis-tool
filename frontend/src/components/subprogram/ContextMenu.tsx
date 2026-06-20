@@ -126,7 +126,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, subprogramId, on
           <p className="text-[10px] font-mono uppercase tracking-widest" style={{ color: '#52525b' }}>
             {sub.kind} · L{sub.startLine}
           </p>
-          <p className="text-sm font-mono font-semibold mt-0.5 truncate" style={{ color: '#facc15' }}>
+          <p className="text-sm font-mono font-semibold mt-0.5 truncate" style={{ color: '#22d3ee' }}>
             {sub.name}
           </p>
         </div>
@@ -146,7 +146,7 @@ export const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, subprogramId, on
               onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; }}
             >
               <p className="text-sm font-medium transition-colors" style={{ color: '#d4d4d8' }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLParagraphElement).style.color = '#facc15'; }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLParagraphElement).style.color = '#22d3ee'; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLParagraphElement).style.color = '#d4d4d8'; }}
               >
                 {item.label}

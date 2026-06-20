@@ -99,16 +99,16 @@ export const OnboardingTour: React.FC = () => {
       >
         {/* Header */}
         <div className="flex items-center gap-2 px-4 py-3 border-b" style={{ borderColor: 'var(--border-default)' }}>
-          <Sparkles size={14} className="text-amber-400" />
-          <span className="text-sm font-mono font-semibold text-zinc-200 flex-1">{current.title}</span>
-          <button onClick={finish} className="text-zinc-500 hover:text-zinc-300 transition-colors">
+          <Sparkles size={14} className="text-cyan-400" />
+          <span className="text-sm font-mono font-semibold text-slate-200 flex-1">{current.title}</span>
+          <button onClick={finish} className="text-slate-500 hover:text-slate-300 transition-colors">
             <X size={14} />
           </button>
         </div>
 
         {/* Body */}
         <div className="px-4 py-3">
-          <p className="text-xs text-zinc-400 leading-relaxed">{current.description}</p>
+          <p className="text-xs text-slate-400 leading-relaxed">{current.description}</p>
         </div>
 
         {/* Footer */}
@@ -126,12 +126,12 @@ export const OnboardingTour: React.FC = () => {
             ))}
           </div>
 
-          <span className="text-[10px] font-mono text-zinc-600">{step + 1}/{steps.length}</span>
+          <span className="text-[10px] font-mono text-slate-600">{step + 1}/{steps.length}</span>
 
           <button
             onClick={prev}
             disabled={step === 0}
-            className="p-1.5 rounded text-zinc-500 hover:text-zinc-300 disabled:opacity-30 transition-colors"
+            className="p-1.5 rounded text-slate-500 hover:text-slate-300 disabled:opacity-30 transition-colors"
           >
             <ChevronLeft size={14} />
           </button>

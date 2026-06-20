@@ -3,9 +3,9 @@ import { CallGraph } from '../types/graph.types';
 export function generateDOT(graph: CallGraph, highlightedId?: string): string {
   const nodeLines = graph.nodes.map((node) => {
     const isHighlighted = node.id === highlightedId;
-    const fillColor = isHighlighted ? '#f59e0b' : '#1e1e24';
+    const fillColor = isHighlighted ? '#22d3ee' : '#1e1e24';
     const fontColor = isHighlighted ? '#0e0e10' : '#f4f4f5';
-    const borderColor = isHighlighted ? '#f59e0b' : '#52525b';
+    const borderColor = isHighlighted ? '#22d3ee' : '#52525b';
     const shape = node.kind === 'function' ? 'ellipse' : 'box';
 
     return `  "${node.id}" [

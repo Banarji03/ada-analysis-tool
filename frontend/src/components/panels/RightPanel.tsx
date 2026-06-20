@@ -37,8 +37,8 @@ export const RightPanel: React.FC = () => {
             onClick={() => setActiveTab(tab.id)}
             className="flex-1 flex items-center justify-center gap-1 py-2 text-[10px] font-mono font-medium uppercase tracking-wider transition-all border-b-2"
             style={{
-              color: activeTab === tab.id ? '#facc15' : '#52525b',
-              borderBottomColor: activeTab === tab.id ? '#facc15' : 'transparent',
+              color: activeTab === tab.id ? '#22d3ee' : '#475569',
+              borderBottomColor: activeTab === tab.id ? '#22d3ee' : 'transparent',
               background: 'transparent',
             }}
           >
@@ -46,7 +46,7 @@ export const RightPanel: React.FC = () => {
             {tab.badge !== undefined && (
               <span
                 className="text-[8px] font-mono px-1 rounded-full"
-                style={{ background: 'rgba(250,204,21,0.2)', color: '#facc15' }}
+                style={{ background: 'rgba(34,211,238,0.15)', color: '#22d3ee' }}
               >
                 {tab.badge}
               </span>

@@ -1,6 +1,5 @@
-/* Ada Test Studio — stylesheet
-   Integrated from correction/ada_test_studio/frontend/src/App.css
-   Author: Rakshitha
+/* Ada Test Studio — Professional Navy/Cyan Theme
+   Redesigned to match IDE color palette
 */
 
 .test-studio-root {
@@ -8,10 +7,10 @@
   flex-direction: column;
   height: 100vh;
   overflow: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 13px;
-  color: #1a1a1a;
-  background: #f0efe9;
+  color: #e2e8f0;
+  background: #0b0f1a;
 }
 
 /* ── topbar ─────────────────────────────────────────────────────────────── */
@@ -19,94 +18,109 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 16px;
-  background: #ffffff;
-  border-bottom: 0.5px solid rgba(0,0,0,0.12);
+  padding: 10px 18px;
+  background: #0f1623;
+  border-bottom: 1px solid #1e2d45;
   flex-shrink: 0;
   gap: 16px;
 }
 .ts-topbar-left  { display: flex; align-items: center; gap: 12px; flex: 1; }
 .ts-topbar-right { display: flex; align-items: center; gap: 8px; }
-.ts-app-title    { font-size: 14px; font-weight: 500; white-space: nowrap; color: #1a1a1a; }
+.ts-app-title    {
+  font-size: 13px; font-weight: 600; white-space: nowrap; color: #22d3ee;
+  letter-spacing: 0.04em; font-family: 'JetBrains Mono', monospace;
+}
 .ts-path-group   { display: flex; gap: 6px; flex: 1; }
 .ts-path-input   {
   flex: 1; height: 32px; padding: 0 10px;
-  border-radius: 8px; border: 0.5px solid rgba(0,0,0,0.22);
-  background: #f7f6f3; font-size: 12px;
-  font-family: "JetBrains Mono", monospace; color: #1a1a1a;
+  border-radius: 8px; border: 1px solid #1e2d45;
+  background: #141d2e; font-size: 12px;
+  font-family: "JetBrains Mono", monospace; color: #e2e8f0;
+  transition: border-color 0.15s;
 }
+.ts-path-input:focus       { outline: none; border-color: rgba(34,211,238,0.45); }
+.ts-path-input::placeholder { color: #475569; }
+
 .ts-stat-pill    { font-size: 11px; padding: 3px 10px; border-radius: 8px; font-weight: 500; }
-.ts-stat-pill.pass { background: #E1F5EE; color: #085041; }
-.ts-stat-pill.fail { background: #FCEBEB; color: #791F1F; }
-.ts-stat-pill.pend { background: #FAEEDA; color: #633806; }
+.ts-stat-pill.pass { background: rgba(52,211,153,0.15);  color: #34d399; }
+.ts-stat-pill.fail { background: rgba(248,113,113,0.15); color: #f87171; }
+.ts-stat-pill.pend { background: rgba(251,146,60,0.15);  color: #fb923c; }
 
 /* ── status bar ──────────────────────────────────────────────────────────── */
 .ts-status-bar {
   display: flex; align-items: center; gap: 8px;
   padding: 6px 16px; font-size: 12px;
-  background: #EEEDFE; color: #3C3489;
-  border-bottom: 0.5px solid rgba(83,74,183,0.2);
+  background: rgba(129,140,248,0.1); color: #818cf8;
+  border-bottom: 1px solid rgba(129,140,248,0.18);
 }
 .ts-status-close {
   margin-left: auto; background: none; border: none;
-  cursor: pointer; font-size: 14px; color: #3C3489; line-height: 1;
+  cursor: pointer; font-size: 14px; color: #818cf8; line-height: 1;
+  opacity: 0.7; transition: opacity 0.1s;
 }
+.ts-status-close:hover { opacity: 1; }
 
 /* ── workspace layout ───────────────────────────────────────────────────── */
 .ts-workspace {
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
+  grid-template-columns: 210px 1fr 210px;
   flex: 1;
   overflow: hidden;
 }
 .ts-left-col   {
-  border-right: 0.5px solid rgba(0,0,0,0.12);
-  background: #f7f6f3;
+  border-right: 1px solid #1e2d45;
+  background: #0f1623;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
-.ts-center-col { overflow-y: auto; background: #ffffff; }
+.ts-center-col { overflow-y: auto; background: #0b0f1a; }
 .ts-right-col  {
-  border-left: 0.5px solid rgba(0,0,0,0.12);
-  background: #f7f6f3;
+  border-left: 1px solid #1e2d45;
+  background: #0f1623;
   overflow-y: auto;
 }
 
 /* ── sidebar panels ─────────────────────────────────────────────────────── */
-.ts-panel      { border-bottom: 0.5px solid rgba(0,0,0,0.12); padding-bottom: 4px; }
+.ts-panel      { border-bottom: 1px solid #1e2d45; padding-bottom: 4px; }
 .ts-panel-head {
   padding: 10px 14px 6px;
-  font-size: 11px; font-weight: 500;
-  color: #888780; text-transform: uppercase; letter-spacing: .05em;
+  font-size: 10px; font-weight: 600;
+  color: #475569; text-transform: uppercase; letter-spacing: .08em;
   display: flex; align-items: center; gap: 6px;
 }
 .ts-sidebar-item {
   display: flex; align-items: center; gap: 7px;
   padding: 7px 14px; cursor: pointer; font-size: 12px;
-  border-left: 2px solid transparent; transition: background 0.1s;
+  border-left: 2px solid transparent; transition: background 0.1s, color 0.1s;
+  color: #94a3b8;
 }
-.ts-sidebar-item:hover  { background: #f0efe9; }
+.ts-sidebar-item:hover  { background: #1a2438; color: #e2e8f0; }
 .ts-sidebar-item.active {
-  border-left-color: #534AB7;
-  background: #ffffff;
+  border-left-color: #22d3ee;
+  background: rgba(34,211,238,0.06);
+  color: #e2e8f0;
   font-weight: 500;
 }
 .ts-item-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ts-item-ext  { font-size: 10px; color: #888780; font-family: "JetBrains Mono", monospace; }
+.ts-item-ext  {
+  font-size: 10px; color: #475569;
+  font-family: "JetBrains Mono", monospace;
+  background: #141d2e; padding: 1px 4px; border-radius: 3px;
+}
 .ts-result-item {
   display: flex; align-items: flex-start; gap: 8px;
-  padding: 8px 12px; border-bottom: 0.5px solid rgba(0,0,0,0.12);
-  cursor: pointer;
+  padding: 8px 12px; border-bottom: 1px solid #1e2d45;
+  cursor: pointer; color: #94a3b8; transition: background 0.1s;
 }
-.ts-result-item:hover { background: #f0efe9; }
+.ts-result-item:hover { background: #1a2438; }
 
 /* ── badges ─────────────────────────────────────────────────────────────── */
-.ts-badge { font-size: 10px; padding: 1px 5px; border-radius: 4px; font-weight: 500; }
-.ts-badge-caps  { background: #EEEDFE; color: #3C3489; }
-.ts-badge-lower { background: #E1F5EE; color: #085041; }
-.ts-badge-orig  { background: #F1EFE8; color: #444441; }
-.ts-badge-dead  { background: #FCEBEB; color: #791F1F; }
+.ts-badge { font-size: 10px; padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+.ts-badge-caps  { background: rgba(129,140,248,0.18); color: #818cf8; }
+.ts-badge-lower { background: rgba(52,211,153,0.15);  color: #34d399; }
+.ts-badge-orig  { background: rgba(148,163,184,0.12); color: #94a3b8; }
+.ts-badge-dead  { background: rgba(248,113,113,0.18); color: #f87171; }
 
 /* ── status dot ──────────────────────────────────────────────────────────── */
 .ts-status-dot {
@@ -117,278 +131,212 @@
 /* ── buttons ─────────────────────────────────────────────────────────────── */
 .ts-btn {
   display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 12px; border-radius: 8px; font-size: 12px; cursor: pointer;
-  border: 0.5px solid rgba(0,0,0,0.22); background: transparent; color: #1a1a1a;
-  transition: background 0.1s;
+  padding: 6px 12px; border-radius: 7px; font-size: 12px; cursor: pointer;
+  border: 1px solid #1e2d45; background: transparent; color: #94a3b8;
+  transition: background 0.1s, color 0.1s, border-color 0.1s;
+  font-family: 'Inter', sans-serif;
 }
-.ts-btn:hover    { background: #f7f6f3; }
+.ts-btn:hover    { background: #1a2438; color: #e2e8f0; border-color: #2a3f5e; }
 .ts-btn:active   { transform: scale(0.98); }
-.ts-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-.ts-btn-primary  { background: #534AB7; color: #fff; border-color: #534AB7; }
-.ts-btn-primary:hover { background: #3C3489; }
-.ts-btn-row { display: flex; gap: 8px; padding: 14px 16px; border-top: 0.5px solid rgba(0,0,0,0.12); }
+.ts-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.ts-btn-primary  {
+  background: linear-gradient(135deg, #0891b2, #0e7490);
+  color: #e2e8f0; border-color: #0891b2;
+}
+.ts-btn-primary:hover { background: linear-gradient(135deg, #22d3ee, #0891b2); border-color: #22d3ee; }
+.ts-btn-row {
+  display: flex; gap: 8px; padding: 12px 16px;
+  border-top: 1px solid #1e2d45;
+}
 
 /* ── test panel ──────────────────────────────────────────────────────────── */
 .ts-test-panel { display: flex; flex-direction: column; min-height: 100%; }
-.ts-test-head  { padding: 14px 16px 10px; border-bottom: 0.5px solid rgba(0,0,0,0.12); }
-.ts-test-title { font-size: 16px; font-weight: 500; display: block; color: #1a1a1a; }
+.ts-test-head  {
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid #1e2d45;
+  background: #0f1623;
+}
+.ts-test-title {
+  font-size: 15px; font-weight: 600; display: block; color: #e2e8f0;
+  font-family: 'JetBrains Mono', monospace;
+}
 .ts-test-meta  {
-  font-size: 11px; color: #5f5e5a;
+  font-size: 11px; color: #475569;
   display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; align-items: center;
 }
 
-.ts-section-tabs  { display: flex; border-bottom: 0.5px solid rgba(0,0,0,0.12); }
+.ts-section-tabs  { display: flex; border-bottom: 1px solid #1e2d45; background: #0f1623; }
 .ts-stab {
-  padding: 8px 16px; font-size: 12px; cursor: pointer; color: #5f5e5a;
+  padding: 8px 16px; font-size: 11.5px; cursor: pointer; color: #475569;
   border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
 }
-.ts-stab.active { border-bottom-color: #534AB7; color: #1a1a1a; font-weight: 500; }
+.ts-stab:hover { color: #94a3b8; }
+.ts-stab.active { border-bottom-color: #22d3ee; color: #e2e8f0; font-weight: 500; }
 
 .ts-section-label {
-  font-size: 11px; color: #888780; text-transform: uppercase;
-  letter-spacing: .05em; padding: 12px 16px 6px;
+  font-size: 10px; color: #475569; text-transform: uppercase;
+  letter-spacing: .08em; padding: 12px 16px 6px; font-weight: 600;
 }
 
 .ts-input-section { padding: 14px 16px; flex: 1; }
 .ts-input-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 10px; margin-bottom: 12px;
 }
 .ts-input-card {
-  background: #f7f6f3; border: 0.5px solid rgba(0,0,0,0.12);
-  border-radius: 8px; padding: 10px 12px;
+  background: #141d2e; border: 1px solid #1e2d45;
+  border-radius: 9px; padding: 11px 13px;
+  transition: border-color 0.15s;
 }
-.ts-input-card-out { border-color: #9FE1CB; background: #E1F5EE; }
-.ts-input-header   { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.ts-input-card:hover { border-color: rgba(34,211,238,0.2); }
+.ts-input-card-out {
+  border-color: rgba(52,211,153,0.25);
+  background: rgba(52,211,153,0.05);
+}
+.ts-input-header   { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
 .ts-input-dir      {
-  font-size: 10px; padding: 1px 5px; border-radius: 3px;
-  background: #f0efe9; color: #5f5e5a;
+  font-size: 9px; padding: 1px 5px; border-radius: 3px;
+  background: #1a2438; color: #475569; font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase;
 }
-.ts-input-dir.out  { background: #E1F5EE; color: #085041; }
-.ts-input-name     { font-size: 13px; font-weight: 500; }
-.ts-input-type     { font-size: 11px; color: #5f5e5a; margin-bottom: 3px; display: flex; align-items: center; gap: 4px; }
-.ts-input-range    { font-size: 10px; color: #888780; margin-bottom: 6px; }
+.ts-input-dir.out  { background: rgba(52,211,153,0.12); color: #34d399; }
+.ts-input-name     { font-size: 13px; font-weight: 500; color: #e2e8f0; }
+.ts-input-type     { font-size: 11px; color: #475569; margin-bottom: 3px; display: flex; align-items: center; gap: 4px; }
+.ts-input-range    { font-size: 10px; color: #2a3f5e; margin-bottom: 6px; font-family: 'JetBrains Mono', monospace; }
 .ts-input-field    {
-  width: 100%; height: 30px; padding: 0 8px; border-radius: 6px;
-  border: 0.5px solid rgba(0,0,0,0.22); background: #ffffff;
-  font-size: 12px; font-family: "JetBrains Mono", monospace; color: #1a1a1a;
+  width: 100%; height: 30px; padding: 0 9px; border-radius: 6px;
+  border: 1px solid #1e2d45; background: #0b0f1a;
+  font-size: 12px; font-family: "JetBrains Mono", monospace; color: #e2e8f0;
+  transition: border-color 0.15s;
 }
+.ts-input-field:focus { outline: none; border-color: rgba(34,211,238,0.4); }
+select.ts-input-field option { background: #0b0f1a; }
 
 /* ── result boxes ────────────────────────────────────────────────────────── */
 .ts-result-box {
   margin: 0 16px 16px; padding: 12px 14px;
-  border-radius: 8px; border: 0.5px solid; font-size: 12px;
+  border-radius: 9px; border: 1px solid; font-size: 12px;
 }
-.ts-result-pass  { background: #E1F5EE; border-color: #5DCAA5; color: #085041; }
-.ts-result-fail  { background: #FCEBEB; border-color: #F09595; color: #791F1F; }
-.ts-result-error { background: #FAEEDA; border-color: #FAC775; color: #633806; }
+.ts-result-pass  { background: rgba(52,211,153,0.08);  border-color: rgba(52,211,153,0.25); color: #34d399; }
+.ts-result-fail  { background: rgba(248,113,113,0.08); border-color: rgba(248,113,113,0.25); color: #f87171; }
+.ts-result-error { background: rgba(251,146,60,0.08);  border-color: rgba(251,146,60,0.25);  color: #fb923c; }
 .ts-result-header {
   display: flex; align-items: center; gap: 8px;
-  font-weight: 500; margin-bottom: 8px;
+  font-weight: 600; margin-bottom: 8px;
 }
-.ts-result-time   { margin-left: auto; font-size: 11px; font-weight: 400; }
+.ts-result-time   { margin-left: auto; font-size: 11px; font-weight: 400; opacity: 0.7; }
 .ts-violation-list { padding-left: 16px; margin-bottom: 8px; }
 .ts-violation-list li { margin-bottom: 3px; }
 .ts-result-table  { display: flex; flex-direction: column; gap: 4px; margin-bottom: 8px; }
 .ts-result-row    { display: flex; gap: 12px; align-items: center; }
-.ts-result-expected { color: #5f5e5a; }
-.ts-result-actual.ok  { color: #1D9E75; font-weight: 500; }
-.ts-result-actual.bad { color: #E24B4A; font-weight: 500; }
-.ts-result-types  { font-size: 10px; opacity: 0.7; }
+.ts-result-expected { color: #475569; }
+.ts-result-actual.ok  { color: #34d399; font-weight: 500; }
+.ts-result-actual.bad { color: #f87171; font-weight: 500; }
+.ts-result-types  { font-size: 10px; opacity: 0.5; }
 
 /* ── history ─────────────────────────────────────────────────────────────── */
 .ts-history { padding: 0 16px 16px; }
 .ts-history-row {
   display: flex; align-items: center; gap: 8px; padding: 5px 8px;
-  border-radius: 4px; border: 0.5px solid rgba(0,0,0,0.12);
-  margin-bottom: 4px; font-size: 11px; background: #f7f6f3;
+  border-radius: 5px; border: 1px solid #1e2d45;
+  margin-bottom: 4px; font-size: 11px; background: #141d2e; color: #94a3b8;
 }
 
 /* ── source viewer ───────────────────────────────────────────────────────── */
 .ts-source-viewer { display: flex; flex-direction: column; height: 100%; }
 .ts-viewer-head   {
-  padding: 10px 16px; border-bottom: 0.5px solid rgba(0,0,0,0.12);
-  font-size: 12px; font-weight: 500; font-family: "JetBrains Mono", monospace;
+  padding: 10px 16px; border-bottom: 1px solid #1e2d45;
+  font-size: 12px; font-weight: 500;
+  font-family: "JetBrains Mono", monospace;
+  background: #0f1623; color: #94a3b8;
 }
 .ts-source-code   {
   flex: 1; overflow: auto; padding: 14px 16px;
-  font-family: "JetBrains Mono", monospace; font-size: 12px; line-height: 1.7;
-  color: #1a1a1a; white-space: pre;
+  font-family: "JetBrains Mono", monospace; font-size: 12px; line-height: 1.75;
+  color: #cbd5e1; white-space: pre;
 }
 
 /* ── empty state ─────────────────────────────────────────────────────────── */
 .ts-empty-state {
   display: flex; align-items: center; justify-content: center;
-  gap: 8px; height: 100%; color: #888780; font-size: 13px;
+  gap: 8px; height: 100%; color: #475569; font-size: 13px;
 }
 
 /* ── variables table ─────────────────────────────────────────────────────── */
 .ts-vars-table { width: 100%; border-collapse: collapse; font-size: 12px; }
 .ts-vars-table th {
   text-align: left; padding: 6px 10px;
-  border-bottom: 0.5px solid rgba(0,0,0,0.1);
-  color: #5f5e5a; font-weight: 500; font-size: 11px;
+  border-bottom: 1px solid #1e2d45;
+  color: #475569; font-weight: 600; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.06em;
 }
-.ts-vars-table td { padding: 5px 10px; border-bottom: 0.5px solid rgba(0,0,0,0.06); }
+.ts-vars-table td { padding: 5px 10px; border-bottom: 1px solid rgba(30,45,69,0.5); color: #94a3b8; }
 .ts-vars-table tr:last-child td { border-bottom: none; }
-.ts-vars-table tr:hover td { background: #f7f6f3; }
+.ts-vars-table tr:hover td { background: #1a2438; color: #e2e8f0; }
 
 /* ── scope pills ─────────────────────────────────────────────────────────── */
-.ts-scope-pill { font-size: 10px; padding: 1px 6px; border-radius: 4px; }
-.ts-scope-local    { background: #F1EFE8; color: #444441; }
-.ts-scope-global   { background: #EEEDFE; color: #3C3489; }
-.ts-scope-constant { background: #FAEEDA; color: #633806; }
+.ts-scope-pill { font-size: 10px; padding: 1px 7px; border-radius: 4px; font-weight: 500; }
+.ts-scope-local    { background: rgba(148,163,184,0.12); color: #94a3b8; }
+.ts-scope-global   { background: rgba(129,140,248,0.15); color: #818cf8; }
+.ts-scope-constant { background: rgba(34,211,238,0.12);  color: #22d3ee; }
 
 /* ── back button ─────────────────────────────────────────────────────────── */
 .ts-back-btn {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 5px 10px; border-radius: 6px; font-size: 12px; cursor: pointer;
-  border: 0.5px solid rgba(0,0,0,0.22); background: transparent; color: #5f5e5a;
-  text-decoration: none; transition: background 0.1s;
+  border: 1px solid #1e2d45; background: transparent; color: #94a3b8;
+  text-decoration: none; transition: background 0.1s, color 0.1s;
 }
-.ts-back-btn:hover { background: #f0efe9; color: #1a1a1a; }
+.ts-back-btn:hover { background: #1a2438; color: #22d3ee; border-color: rgba(34,211,238,0.3); }
 
 .ts-mono { font-family: "JetBrains Mono", monospace; }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   DARK MODE OVERRIDES
-   Applied when TestStudio is embedded inside the dark IDE (TestCasePanel).
-   Wrap the component root with className="ts-dark" to activate.
+   DARK MODE (when embedded inside IDE panels — ts-dark class)
+   The standalone TestStudioPage is already dark, ts-dark is for panel embed.
    ═══════════════════════════════════════════════════════════════════════════ */
-
-.ts-dark {
-  color: #e4e4e7;
-  background: transparent;
-}
-
-/* Badges — readable on dark bg */
-.ts-dark .ts-badge-caps  { background: rgba(99,102,241,0.2);  color: #a5b4fc; }
-.ts-dark .ts-badge-lower { background: rgba(34,197,94,0.15);  color: #4ade80; }
-.ts-dark .ts-badge-orig  { background: rgba(161,161,170,0.15); color: #a1a1aa; }
-.ts-dark .ts-badge-dead  { background: rgba(239,68,68,0.2);   color: #f87171; }
-
-/* Input cards */
-.ts-dark .ts-input-card {
-  background: #27272a;
-  border-color: #3f3f46;
-}
-.ts-dark .ts-input-card-out {
-  background: rgba(22,101,52,0.2);
-  border-color: #166534;
-}
-.ts-dark .ts-input-name  { color: #e4e4e7; }
-.ts-dark .ts-input-type  { color: #a1a1aa; }
-.ts-dark .ts-input-range { color: #71717a; }
-.ts-dark .ts-input-dir   { background: #3f3f46; color: #a1a1aa; }
-.ts-dark .ts-input-dir.out { background: rgba(22,101,52,0.3); color: #4ade80; }
-
-/* Input fields */
-.ts-dark .ts-input-field {
-  background: #18181b;
-  color: #e4e4e7;
-  border-color: #3f3f46;
-}
-.ts-dark .ts-input-field:focus {
-  outline: none;
-  border-color: #f59e0b;
-}
-.ts-dark select.ts-input-field option { background: #18181b; }
-
-/* Section label */
-.ts-dark .ts-section-label { color: #71717a; }
-
-/* Buttons */
-.ts-dark .ts-btn {
-  background: transparent;
-  border-color: #3f3f46;
-  color: #a1a1aa;
-}
-.ts-dark .ts-btn:hover { background: #27272a; color: #e4e4e7; }
-.ts-dark .ts-btn-primary {
-  background: #d97706;
-  border-color: #d97706;
-  color: #fff;
-}
-.ts-dark .ts-btn-primary:hover { background: #b45309; }
-.ts-dark .ts-btn:disabled { opacity: 0.4; }
-
-/* Result boxes */
-.ts-dark .ts-result-pass  { background: rgba(22,101,52,0.2);  border-color: #166534; color: #4ade80; }
-.ts-dark .ts-result-fail  { background: rgba(153,27,27,0.2);  border-color: #991b1b; color: #f87171; }
-.ts-dark .ts-result-error { background: rgba(120,53,15,0.2);  border-color: #92400e; color: #fbbf24; }
-.ts-dark .ts-result-expected { color: #71717a; }
-.ts-dark .ts-result-actual.ok  { color: #4ade80; }
-.ts-dark .ts-result-actual.bad { color: #f87171; }
-.ts-dark .ts-result-types { color: #52525b; }
-
-/* Variables table */
-.ts-dark .ts-vars-table th {
-  color: #71717a;
-  border-bottom-color: rgba(255,255,255,0.08);
-}
-.ts-dark .ts-vars-table td {
-  color: #a1a1aa;
-  border-bottom-color: rgba(255,255,255,0.05);
-}
-.ts-dark .ts-vars-table tr:hover td { background: rgba(255,255,255,0.03); }
-
-/* Scope pills */
-.ts-dark .ts-scope-local    { background: rgba(161,161,170,0.15); color: #a1a1aa; }
-.ts-dark .ts-scope-global   { background: rgba(99,102,241,0.2);   color: #a5b4fc; }
-.ts-dark .ts-scope-constant { background: rgba(245,158,11,0.15);  color: #fbbf24; }
-
-/* History rows */
-.ts-dark .ts-history-row {
-  background: #1c1c1e;
-  border-color: rgba(255,255,255,0.06);
-  color: #a1a1aa;
-}
-
-/* Violation list */
-.ts-dark .ts-violation-list { color: #fbbf24; }
-
-/* Status dot — same colors work on dark */
-/* Stat pills — keep same, readable on both */
-.ts-dark .ts-stat-pill.pass { background: rgba(22,101,52,0.25);  color: #4ade80; }
-.ts-dark .ts-stat-pill.fail { background: rgba(153,27,27,0.25);  color: #f87171; }
-.ts-dark .ts-stat-pill.pend { background: rgba(120,53,15,0.25);  color: #fbbf24; }
-
-/* Path input */
-.ts-dark .ts-path-input {
-  background: #18181b;
-  color: #e4e4e7;
-  border-color: #3f3f46;
-}
-.ts-dark .ts-path-input::placeholder { color: #52525b; }
-
-/* Status bar */
-.ts-dark .ts-status-bar {
-  background: rgba(99,102,241,0.15);
-  color: #a5b4fc;
-  border-bottom-color: rgba(99,102,241,0.2);
-}
-.ts-dark .ts-status-close { color: #a5b4fc; }
-
-/* Panel head */
-.ts-dark .ts-panel-head { color: #52525b; }
-
-/* Sidebar items */
-.ts-dark .ts-sidebar-item { color: #a1a1aa; }
-.ts-dark .ts-sidebar-item:hover { background: rgba(255,255,255,0.04); }
-.ts-dark .ts-sidebar-item.active {
-  border-left-color: #f59e0b;
-  background: rgba(245,158,11,0.06);
-  color: #e4e4e7;
-}
-
-/* Result items in sidebar */
-.ts-dark .ts-result-item { border-bottom-color: rgba(255,255,255,0.06); }
-.ts-dark .ts-result-item:hover { background: rgba(255,255,255,0.04); }
-
-/* Test head */
-.ts-dark .ts-test-title { color: #e4e4e7; }
-.ts-dark .ts-test-meta  { color: #71717a; }
-
-/* Btn row border */
-.ts-dark .ts-btn-row { border-top-color: rgba(255,255,255,0.08); }
+.ts-dark { color: #e2e8f0; background: transparent; }
+.ts-dark .ts-badge-caps  { background: rgba(129,140,248,0.2); color: #818cf8; }
+.ts-dark .ts-badge-lower { background: rgba(52,211,153,0.15); color: #34d399; }
+.ts-dark .ts-badge-orig  { background: rgba(148,163,184,0.12); color: #94a3b8; }
+.ts-dark .ts-badge-dead  { background: rgba(248,113,113,0.2);  color: #f87171; }
+.ts-dark .ts-input-card  { background: #141d2e; border-color: #1e2d45; }
+.ts-dark .ts-input-card-out { background: rgba(52,211,153,0.06); border-color: rgba(52,211,153,0.2); }
+.ts-dark .ts-input-name  { color: #e2e8f0; }
+.ts-dark .ts-input-type  { color: #475569; }
+.ts-dark .ts-input-field { background: #0b0f1a; color: #e2e8f0; border-color: #1e2d45; }
+.ts-dark .ts-input-field:focus { border-color: rgba(34,211,238,0.4); }
+.ts-dark select.ts-input-field option { background: #0b0f1a; }
+.ts-dark .ts-section-label { color: #475569; }
+.ts-dark .ts-btn          { background: transparent; border-color: #1e2d45; color: #94a3b8; }
+.ts-dark .ts-btn:hover    { background: #1a2438; color: #e2e8f0; }
+.ts-dark .ts-btn-primary  { background: linear-gradient(135deg, #0891b2, #0e7490); border-color: #0891b2; color: #e2e8f0; }
+.ts-dark .ts-btn-primary:hover { background: linear-gradient(135deg, #22d3ee, #0891b2); }
+.ts-dark .ts-result-pass  { background: rgba(52,211,153,0.08);  border-color: rgba(52,211,153,0.22); color: #34d399; }
+.ts-dark .ts-result-fail  { background: rgba(248,113,113,0.08); border-color: rgba(248,113,113,0.22); color: #f87171; }
+.ts-dark .ts-result-error { background: rgba(251,146,60,0.08);  border-color: rgba(251,146,60,0.22);  color: #fb923c; }
+.ts-dark .ts-vars-table th { color: #475569; border-bottom-color: #1e2d45; }
+.ts-dark .ts-vars-table td { color: #94a3b8; border-bottom-color: rgba(30,45,69,0.5); }
+.ts-dark .ts-vars-table tr:hover td { background: #1a2438; }
+.ts-dark .ts-scope-local    { background: rgba(148,163,184,0.12); color: #94a3b8; }
+.ts-dark .ts-scope-global   { background: rgba(129,140,248,0.15); color: #818cf8; }
+.ts-dark .ts-scope-constant { background: rgba(34,211,238,0.12);  color: #22d3ee; }
+.ts-dark .ts-history-row    { background: #141d2e; border-color: #1e2d45; color: #94a3b8; }
+.ts-dark .ts-stat-pill.pass { background: rgba(52,211,153,0.15);  color: #34d399; }
+.ts-dark .ts-stat-pill.fail { background: rgba(248,113,113,0.15); color: #f87171; }
+.ts-dark .ts-stat-pill.pend { background: rgba(251,146,60,0.15);  color: #fb923c; }
+.ts-dark .ts-path-input     { background: #0b0f1a; color: #e2e8f0; border-color: #1e2d45; }
+.ts-dark .ts-path-input::placeholder { color: #475569; }
+.ts-dark .ts-status-bar     { background: rgba(129,140,248,0.1); color: #818cf8; border-bottom-color: rgba(129,140,248,0.18); }
+.ts-dark .ts-status-close   { color: #818cf8; }
+.ts-dark .ts-panel-head     { color: #475569; }
+.ts-dark .ts-sidebar-item   { color: #94a3b8; }
+.ts-dark .ts-sidebar-item:hover  { background: #1a2438; }
+.ts-dark .ts-sidebar-item.active { border-left-color: #22d3ee; background: rgba(34,211,238,0.06); color: #e2e8f0; }
+.ts-dark .ts-result-item         { border-bottom-color: #1e2d45; }
+.ts-dark .ts-result-item:hover   { background: #1a2438; }
+.ts-dark .ts-test-title          { color: #e2e8f0; }
+.ts-dark .ts-test-meta           { color: #475569; }
+.ts-dark .ts-btn-row             { border-top-color: #1e2d45; }

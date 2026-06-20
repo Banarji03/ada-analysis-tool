@@ -55,9 +55,9 @@ export const KeyboardShortcutsModal: React.FC<ShortcutsModalProps> = ({ open, on
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center gap-2 px-4 py-3 border-b" style={{ borderColor: 'var(--border-default)' }}>
-          <Keyboard size={15} className="text-amber-400" />
-          <span className="text-sm font-mono font-semibold text-zinc-200">Keyboard Shortcuts</span>
-          <button onClick={onClose} className="ml-auto text-zinc-500 hover:text-zinc-300 transition-colors">
+          <Keyboard size={15} className="text-cyan-400" />
+          <span className="text-sm font-mono font-semibold text-slate-200">Keyboard Shortcuts</span>
+          <button onClick={onClose} className="ml-auto text-slate-500 hover:text-slate-300 transition-colors">
             <X size={15} />
           </button>
         </div>
@@ -65,18 +65,18 @@ export const KeyboardShortcutsModal: React.FC<ShortcutsModalProps> = ({ open, on
         <div className="overflow-y-auto p-4 grid grid-cols-2 gap-4" style={{ maxHeight: 480 }}>
           {shortcuts.map((section) => (
             <div key={section.category}>
-              <p className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest mb-2">
+              <p className="text-[9px] font-mono text-slate-600 uppercase tracking-widest mb-2">
                 {section.category}
               </p>
               <div className="flex flex-col gap-1.5">
                 {section.items.map((item) => (
                   <div key={item.label} className="flex items-center justify-between gap-2">
-                    <span className="text-xs text-zinc-400">{item.label}</span>
+                    <span className="text-xs text-slate-400">{item.label}</span>
                     <div className="flex items-center gap-1 flex-shrink-0">
                       {item.keys.map((k, i) => (
                         <React.Fragment key={k}>
                           {i > 0 && <span className="text-zinc-700 text-[10px]">+</span>}
-                          <kbd className="text-[9px] font-mono text-zinc-400 bg-zinc-800 border border-zinc-700 px-1.5 py-0.5 rounded">
+                          <kbd className="text-[9px] font-mono text-slate-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded">
                             {k}
                           </kbd>
                         </React.Fragment>

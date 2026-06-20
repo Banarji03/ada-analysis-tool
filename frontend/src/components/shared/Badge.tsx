@@ -10,12 +10,12 @@ interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  primary: 'bg-amber-500/20 text-amber-400 border border-amber-500/30',
-  secondary: 'bg-orange-500/20 text-orange-400 border border-orange-500/30',
-  success: 'bg-green-500/20 text-green-400 border border-green-500/30',
+  primary: 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30',
+  secondary: 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30',
+  success: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30',
   danger: 'bg-red-500/20 text-red-400 border border-red-500/30',
-  warning: 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30',
-  muted: 'bg-zinc-700/40 text-zinc-400 border border-zinc-700/50',
+  warning: 'bg-orange-500/20 text-orange-400 border border-orange-500/30',
+  muted: 'bg-slate-700/40 text-slate-400 border border-slate-700/50',
 };
 
 export const Badge: React.FC<BadgeProps> = ({

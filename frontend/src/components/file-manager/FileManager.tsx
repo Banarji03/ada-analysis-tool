@@ -138,20 +138,20 @@ const FileRow: React.FC<{ file: AdaFile; indent?: boolean }> = ({ file, indent =
           className="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded transition-all"
           style={{
             background: isParsing
-              ? 'rgba(250,204,21,0.15)'
+              ? 'rgba(34,211,238,0.15)'
               : isParsed
               ? 'rgba(74,222,128,0.12)'
               : 'rgba(96,165,250,0.12)',
-            border: `1px solid ${isParsing ? 'rgba(250,204,21,0.3)' : isParsed ? 'rgba(74,222,128,0.3)' : 'rgba(96,165,250,0.3)'}`,
-            color: isParsing ? '#facc15' : isParsed ? '#4ade80' : '#60a5fa',
+            border: `1px solid ${isParsing ? 'rgba(34,211,238,0.3)' : isParsed ? 'rgba(74,222,128,0.3)' : 'rgba(96,165,250,0.3)'}`,
+            color: isParsing ? '#22d3ee' : isParsed ? '#4ade80' : '#60a5fa',
           }}
           onMouseEnter={e => {
             const btn = e.currentTarget as HTMLButtonElement;
-            btn.style.background = isParsing ? 'rgba(250,204,21,0.25)' : isParsed ? 'rgba(74,222,128,0.25)' : 'rgba(96,165,250,0.25)';
+            btn.style.background = isParsing ? 'rgba(34,211,238,0.25)' : isParsed ? 'rgba(74,222,128,0.25)' : 'rgba(96,165,250,0.25)';
           }}
           onMouseLeave={e => {
             const btn = e.currentTarget as HTMLButtonElement;
-            btn.style.background = isParsing ? 'rgba(250,204,21,0.15)' : isParsed ? 'rgba(74,222,128,0.12)' : 'rgba(96,165,250,0.12)';
+            btn.style.background = isParsing ? 'rgba(34,211,238,0.15)' : isParsed ? 'rgba(74,222,128,0.12)' : 'rgba(96,165,250,0.12)';
           }}
         >
           {isParsing
@@ -177,7 +177,7 @@ const FileRow: React.FC<{ file: AdaFile; indent?: boolean }> = ({ file, indent =
       )}
 
       {/* File icon */}
-      <FileCode size={12} style={{ color: isActive ? '#facc15' : '#52525b', flexShrink: 0 }} />
+      <FileCode size={12} style={{ color: isActive ? '#22d3ee' : '#52525b', flexShrink: 0 }} />
 
       {/* File name */}
       <span className="flex-1 text-xs font-mono truncate min-w-0" title={file.relativePath ?? file.name}>
@@ -186,7 +186,7 @@ const FileRow: React.FC<{ file: AdaFile; indent?: boolean }> = ({ file, indent =
 
       {/* Status indicators */}
       {isParsing && !isAdb && (
-        <Loader size={11} className="animate-spin flex-shrink-0" style={{ color: '#facc15' }} />
+        <Loader size={11} className="animate-spin flex-shrink-0" style={{ color: '#22d3ee' }} />
       )}
       {isParsed && !isParsing && (
         <CheckCircle size={11} style={{ color: '#4ade80', flexShrink: 0 }} aria-label="Parsed — JSON ready" />
@@ -259,12 +259,12 @@ const FolderGroup: React.FC<{
         onClick={() => setOpen((v) => !v)}
       >
         {open
-          ? <FolderOpen size={12} className="text-amber-400 flex-shrink-0" />
-          : <FolderClosed size={12} className="text-amber-500/60 flex-shrink-0" />
+          ? <FolderOpen size={12} className="text-cyan-400 flex-shrink-0" />
+          : <FolderClosed size={12} className="text-cyan-500/60 flex-shrink-0" />
         }
         <span className="flex-1 text-xs font-mono text-zinc-300 truncate">{folderName}</span>
         {isLarge && (
-          <span className="text-[9px] font-mono text-amber-500/70">⚠ {folderFiles.length}</span>
+          <span className="text-[9px] font-mono text-cyan-500/70">⚠ {folderFiles.length}</span>
         )}
         {!isLarge && (
           <span className="text-[10px] font-mono text-zinc-600">{folderFiles.length}</span>

@@ -27,14 +27,14 @@ export function showToast(message: string, type: ToastType = 'info', duration = 
 const icons: Record<ToastType, React.ReactNode> = {
   success: <CheckCircle size={14} className="text-green-400" />,
   error: <XCircle size={14} className="text-red-400" />,
-  warning: <AlertTriangle size={14} className="text-amber-400" />,
+  warning: <AlertTriangle size={14} className="text-cyan-400" />,
   info: <Info size={14} className="text-blue-400" />,
 };
 
 const borderColors: Record<ToastType, string> = {
   success: 'border-green-500/40',
   error: 'border-red-500/40',
-  warning: 'border-amber-500/40',
+  warning: 'border-cyan-500/40',
   info: 'border-blue-500/40',
 };
 

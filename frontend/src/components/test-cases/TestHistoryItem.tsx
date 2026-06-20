@@ -42,7 +42,7 @@ export const TestHistoryItem: React.FC<TestHistoryItemProps> = ({ set }) => {
   return (
     <div
       className="flex flex-col rounded-lg border transition-all"
-      style={{ background: 'var(--bg-elevated)', borderColor: expanded ? 'rgba(245,158,11,0.3)' : 'var(--border-default)' }}
+      style={{ background: 'var(--bg-elevated)', borderColor: expanded ? 'rgba(34,211,238,0.3)' : 'var(--border-default)' }}
     >
       {/* ── Header row ────────────────────────────────────────────── */}
       <div className="flex flex-col gap-0.5 px-3 pt-2 pb-1">
@@ -50,13 +50,13 @@ export const TestHistoryItem: React.FC<TestHistoryItemProps> = ({ set }) => {
           {/* Expand toggle */}
           <button
             onClick={() => setExpanded(v => !v)}
-            className="flex-shrink-0 text-zinc-600 hover:text-zinc-300 transition-colors"
+            className="flex-shrink-0 text-slate-600 hover:text-slate-300 transition-colors"
             title={expanded ? 'Collapse' : 'Show test details'}
           >
             {expanded ? <ChevronDown size={11} /> : <ChevronRight size={11} />}
           </button>
 
-          <span className="text-xs font-mono text-zinc-200 flex-1 truncate">{set.subprogramName}</span>
+          <span className="text-xs font-mono text-slate-200 flex-1 truncate">{set.subprogramName}</span>
 
           {/* Pass/fail badge */}
           {totalRan > 0 && (
@@ -65,13 +65,13 @@ export const TestHistoryItem: React.FC<TestHistoryItemProps> = ({ set }) => {
               {passCount}/{totalRan}
             </span>
           )}
-          <span className="text-[9px] font-mono text-amber-500 flex-shrink-0">{set.testCases.length} tests</span>
+          <span className="text-[9px] font-mono text-cyan-500 flex-shrink-0">{set.testCases.length} tests</span>
         </div>
 
         <div className="flex items-center gap-1 pl-4">
-          <span className="text-[10px] font-mono text-zinc-600 flex-1">{timeStr}</span>
+          <span className="text-[10px] font-mono text-slate-600 flex-1">{timeStr}</span>
           {set.tag && !editingTag && (
-            <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-zinc-700/50 text-zinc-400">
+            <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-zinc-700/50 text-slate-400">
               {set.tag}
             </span>
           )}
@@ -87,7 +87,7 @@ export const TestHistoryItem: React.FC<TestHistoryItemProps> = ({ set }) => {
             value={tagValue}
             onChange={e => setTagValue(e.target.value)}
             onKeyDown={e => { if (e.key === 'Enter') handleSaveTag(); if (e.key === 'Escape') setEditingTag(false); }}
-            className="flex-1 px-2 py-0.5 text-[10px] font-mono rounded bg-zinc-800 border border-amber-500/40 text-zinc-200 focus:outline-none"
+            className="flex-1 px-2 py-0.5 text-[10px] font-mono rounded bg-slate-800 border border-cyan-500/35 text-slate-200 focus:outline-none"
             placeholder="Tag name..."
           />
           <button onClick={handleSaveTag} className="text-green-400 hover:text-green-300">
@@ -110,26 +110,26 @@ export const TestHistoryItem: React.FC<TestHistoryItemProps> = ({ set }) => {
                 <div className="flex items-center gap-2 mb-1">
                   <span className="text-[9px] font-mono px-1 rounded flex-shrink-0"
                     style={{
-                      background: tc.type === 'normal' ? 'rgba(34,197,94,0.15)' : tc.type === 'edge' ? 'rgba(245,158,11,0.15)' : 'rgba(239,68,68,0.15)',
-                      color: tc.type === 'normal' ? '#4ade80' : tc.type === 'edge' ? '#f59e0b' : '#f87171',
+                      background: tc.type === 'normal' ? 'rgba(34,197,94,0.15)' : tc.type === 'edge' ? 'rgba(34,211,238,0.15)' : 'rgba(239,68,68,0.15)',
+                      color: tc.type === 'normal' ? '#4ade80' : tc.type === 'edge' ? '#22d3ee' : '#f87171',
                     }}>
                     {tc.type}
                   </span>
-                  <span className="text-[9px] font-mono text-zinc-500 flex-1">Test {idx + 1}</span>
+                  <span className="text-[9px] font-mono text-slate-500 flex-1">Test {idx + 1}</span>
                   <StatusPill status={tc.runStatus} />
                 </div>
                 {/* Inputs */}
                 {Object.keys(tc.inputs).length > 0 && (
                   <div className="mb-0.5">
-                    <span className="text-[8px] font-mono text-zinc-600">inputs: </span>
-                    <span className="text-[8px] font-mono text-zinc-300">
+                    <span className="text-[8px] font-mono text-slate-600">inputs: </span>
+                    <span className="text-[8px] font-mono text-slate-300">
                       {Object.entries(tc.inputs).map(([k, v]) => `${k}=${JSON.stringify(v)}`).join(', ')}
                     </span>
                   </div>
                 )}
                 {/* Expected */}
                 <div className="mb-0.5">
-                  <span className="text-[8px] font-mono text-zinc-600">expected: </span>
+                  <span className="text-[8px] font-mono text-slate-600">expected: </span>
                   <span className="text-[8px] font-mono" style={{ color: '#a5b4fc' }}>
                     {String(tc.expected)}
                   </span>
@@ -137,7 +137,7 @@ export const TestHistoryItem: React.FC<TestHistoryItemProps> = ({ set }) => {
                 {/* Actual output */}
                 {tc.actualOutput && (
                   <div>
-                    <span className="text-[8px] font-mono text-zinc-600">actual: </span>
+                    <span className="text-[8px] font-mono text-slate-600">actual: </span>
                     <span className="text-[8px] font-mono" style={{ color: tc.runStatus === 'pass' ? '#4ade80' : '#f87171' }}>
                       {tc.actualOutput}
                     </span>
@@ -159,28 +159,28 @@ export const TestHistoryItem: React.FC<TestHistoryItemProps> = ({ set }) => {
       <div className="flex items-center gap-1 px-3 pb-2">
         <button
           onClick={() => loadFromHistory(set.id)}
-          className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono text-zinc-500 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"
+          className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono text-slate-500 hover:text-cyan-400 hover:bg-cyan-500/10 transition-colors"
           title="Load test set into Test Studio"
         >
           <RotateCcw size={9} /> Load
         </button>
         <button
           onClick={() => setEditingTag(true)}
-          className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono text-zinc-500 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"
+          className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono text-slate-500 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"
           title="Tag this entry"
         >
           <Tag size={9} /> Tag
         </button>
         <button
           onClick={() => exportCurrent(set.subprogramId, set.subprogramName)}
-          className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono text-zinc-500 hover:text-green-400 hover:bg-green-500/10 transition-colors"
+          className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono text-slate-500 hover:text-green-400 hover:bg-green-500/10 transition-colors"
           title="Download this test set as JSON"
         >
           <Download size={9} /> JSON
         </button>
         <button
           onClick={() => deleteHistory(set.id)}
-          className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono text-zinc-500 hover:text-red-400 hover:bg-red-500/10 transition-colors ml-auto"
+          className="flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono text-slate-500 hover:text-red-400 hover:bg-red-500/10 transition-colors ml-auto"
           title="Delete"
         >
           <Trash2 size={9} />

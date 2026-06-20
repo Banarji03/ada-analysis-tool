@@ -244,7 +244,9 @@ const EditorPage: React.FC = () => {
       {/* ── Topbar ──────────────────────────────────────────────────────────── */}
       <div className="ide-topbar">
         <div className="ide-topbar-logo">
-          <Diamond size={15} style={{ color: 'var(--accent-primary)' }} />
+          <div className="logo-icon">
+            <Diamond size={12} style={{ color: '#0b0f1a', strokeWidth: 2.5 }} />
+          </div>
           <span className="hidden sm:block">Ada IDE</span>
           {activeProjectName && (
             <>

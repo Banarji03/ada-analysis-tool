@@ -10,7 +10,7 @@ import { BugEntry } from '../../utils/adaAnalyzer';
 
 const severityIcon = {
   error:   <XCircle size={12} className="text-red-400 flex-shrink-0" />,
-  warning: <AlertTriangle size={12} className="text-amber-400 flex-shrink-0" />,
+  warning: <AlertTriangle size={12} className="text-cyan-400 flex-shrink-0" />,
   info:    <Info size={12} className="text-blue-400 flex-shrink-0" />,
 };
 
@@ -46,7 +46,7 @@ const DiagRow: React.FC<{ diag: Diagnostic }> = ({ diag }) => {
       {severityIcon[diag.severity]}
       <div className="flex-1 min-w-0">
         <p className="text-xs text-zinc-300 leading-snug">{diag.message}</p>
-        <p className="text-[10px] font-mono mt-0.5" style={{ color: '#facc15' }}>
+        <p className="text-[10px] font-mono mt-0.5" style={{ color: '#22d3ee' }}>
           {diag.file}:{diag.line}:{diag.column}
           <span className="ml-2 text-zinc-600">↗ click to navigate</span>
         </p>

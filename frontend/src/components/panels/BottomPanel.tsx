@@ -31,8 +31,8 @@ export const BottomPanel: React.FC = () => {
               onClick={() => setActiveTab(tab.id)}
               className={`px-4 py-2 text-xs font-medium transition-all border-b-2 ${
                 activeTab === tab.id
-                  ? 'text-amber-400 border-amber-500'
-                  : 'text-zinc-500 border-transparent hover:text-zinc-300'
+                  ? 'text-cyan-400 border-cyan-500'
+                  : 'text-slate-500 border-transparent hover:text-slate-300'
               }`}
             >
               {tab.label}

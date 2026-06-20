@@ -36,7 +36,7 @@ export const CoverageHeatmap: React.FC = () => {
               <div className="flex items-center gap-1">
                 {[
                   { label: 'Normal', has: hasNormal, color: '#22c55e' },
-                  { label: 'Edge', has: hasEdge, color: '#f59e0b' },
+                  { label: 'Edge', has: hasEdge, color: '#22d3ee' },
                   { label: 'Invalid', has: hasInvalid, color: '#ef4444' },
                 ].map((t) => (
                   <Tooltip key={t.label} content={`${t.label}: ${t.has ? '✓' : '✗'}`}>
@@ -58,7 +58,7 @@ export const CoverageHeatmap: React.FC = () => {
                   className="h-full rounded-full transition-all duration-500"
                   style={{
                     width: `${pct}%`,
-                    background: pct === 100 ? '#22c55e' : pct >= 66 ? '#f59e0b' : '#ef4444',
+                    background: pct === 100 ? '#22c55e' : pct >= 66 ? '#22d3ee' : '#ef4444',
                   }}
                 />
               </div>
@@ -75,7 +75,7 @@ export const CoverageHeatmap: React.FC = () => {
       <div className="flex items-center gap-3 mt-3 pt-3 border-t" style={{ borderColor: 'var(--border-default)' }}>
         {[
           { color: '#22c55e', label: 'Normal' },
-          { color: '#f59e0b', label: 'Edge' },
+          { color: '#22d3ee', label: 'Edge' },
           { color: '#ef4444', label: 'Invalid' },
         ].map((l) => (
           <span key={l.label} className="flex items-center gap-1 text-[10px] font-mono text-zinc-600">

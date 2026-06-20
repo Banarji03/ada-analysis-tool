@@ -7,7 +7,7 @@ import { useSubprogramStore } from '../../store/useSubprogramStore';
 
 const statusDot: Record<string, { color: string; title: string; pulse?: boolean }> = {
   pending: { color: '#52525b', title: 'Pending' },
-  parsing: { color: '#facc15', title: 'Parsing…', pulse: true },
+  parsing: { color: '#22d3ee', title: 'Parsing…', pulse: true },
   parsed:  { color: '#4ade80', title: 'Parsed OK' },
   error:   { color: '#f87171', title: 'Parse error' },
 };

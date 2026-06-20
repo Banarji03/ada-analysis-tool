@@ -73,14 +73,14 @@ const COMMON_CSS = `
     table { page-break-inside: avoid; }
     tr { page-break-inside: avoid; }
   }
-  h1 { font-size: 22px; color: #f59e0b; margin-bottom: 4px; }
+  h1 { font-size: 22px; color: #22d3ee; margin-bottom: 4px; }
   h2 { font-size: 14px; color: #a1a1aa; font-weight: 400; margin-bottom: 24px; }
-  h3 { font-size: 13px; color: #f59e0b; margin: 28px 0 10px; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #27272a; padding-bottom: 6px; }
+  h3 { font-size: 13px; color: #22d3ee; margin: 28px 0 10px; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #27272a; padding-bottom: 6px; }
   .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin-bottom: 28px; }
   .card { background: #16161a; border: 1px solid #27272a; border-radius: 8px; padding: 14px; text-align: center; }
   .card .val { font-size: 26px; font-weight: 700; font-family: monospace; }
   .card .lbl { font-size: 10px; color: #71717a; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 3px; }
-  .amber { color: #f59e0b; } .green { color: #22c55e; } .red { color: #ef4444; } .blue { color: #60a5fa; } .yellow { color: #fbbf24; }
+  .amber { color: #22d3ee; } .green { color: #22c55e; } .red { color: #ef4444; } .blue { color: #60a5fa; } .yellow { color: #fbbf24; }
   table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 20px; }
   th { background: #16161a; color: #a1a1aa; text-align: left; padding: 7px 10px; border-bottom: 1px solid #27272a; font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
   td { padding: 7px 10px; border-bottom: 1px solid #1e1e24; vertical-align: top; word-break: break-word; }
@@ -94,10 +94,10 @@ const COMMON_CSS = `
   .badge-fail { background: rgba(239,68,68,0.15); color: #ef4444; }
   .badge-error { background: rgba(251,191,36,0.15); color: #fbbf24; }
   .badge-pending { background: rgba(113,113,122,0.15); color: #71717a; }
-  .badge.procedure { background: rgba(245,158,11,0.15); color: #f59e0b; }
+  .badge.procedure { background: rgba(34,211,238,0.15); color: #22d3ee; }
   .badge.function { background: rgba(251,146,60,0.15); color: #fb923c; }
   .badge.normal { background: rgba(34,197,94,0.15); color: #22c55e; }
-  .badge.edge { background: rgba(245,158,11,0.15); color: #f59e0b; }
+  .badge.edge { background: rgba(34,211,238,0.15); color: #22d3ee; }
   .badge.invalid { background: rgba(239,68,68,0.15); color: #ef4444; }
   .kv { display: flex; gap: 8px; flex-wrap: wrap; }
   .kv-item { font-family: monospace; font-size: 11px; padding: 2px 6px; border-radius: 3px; background: #1e1e24; color: #e4e4e7; }
@@ -108,7 +108,7 @@ const COMMON_CSS = `
   .progress { height: 6px; background: #27272a; border-radius: 3px; overflow: hidden; margin: 8px 0 20px; }
   .progress-bar { height: 100%; border-radius: 3px; }
   footer { margin-top: 40px; padding-top: 12px; border-top: 1px solid #27272a; font-size: 10px; color: #52525b; display: flex; justify-content: space-between; }
-  .print-btn { position: fixed; top: 16px; right: 16px; padding: 8px 16px; background: #f59e0b; color: #000; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 13px; z-index: 999; }
+  .print-btn { position: fixed; top: 16px; right: 16px; padding: 8px 16px; background: #22d3ee; color: #000; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 13px; z-index: 999; }
 `;
 
 // ── 1. Full Project Report ─────────────────────────────────────────────────────
@@ -126,7 +126,7 @@ export function generateHTMLReport(data: ReportData): string {
     const score    = complexityScore(sub);
     const tests    = testSets.find((s) => s.subprogramId === sub.id);
     const testCount = tests?.testCases.length ?? 0;
-    const color    = score <= 2 ? '#22c55e' : score <= 4 ? '#f59e0b' : '#ef4444';
+    const color    = score <= 2 ? '#22c55e' : score <= 4 ? '#22d3ee' : '#ef4444';
     const paramSig = sub.parameters.map(p => `${p.name} : ${p.mode} ${p.paramType}`).join('; ');
     return `<tr>
       <td><code>${escapeHtml(sub.name)}</code>${sub.returnType ? `<br><span style="font-size:10px;color:#fb923c">→ ${escapeHtml(sub.returnType)}</span>` : ''}</td>
@@ -139,7 +139,7 @@ export function generateHTMLReport(data: ReportData): string {
   }).join('');
 
   const diagRows = diagnostics.map((d) => {
-    const color = d.severity === 'error' ? '#ef4444' : d.severity === 'warning' ? '#f59e0b' : '#60a5fa';
+    const color = d.severity === 'error' ? '#ef4444' : d.severity === 'warning' ? '#22d3ee' : '#60a5fa';
     return `<tr>
       <td style="color:${color};font-weight:600">${d.severity.toUpperCase()}</td>
       <td>${escapeHtml(d.message)}</td>
@@ -179,7 +179,7 @@ export function generateHTMLReport(data: ReportData): string {
   <div class="card"><div class="val red">${errors}</div><div class="lbl">Errors</div></div>
   <div class="card"><div class="val amber">${warnings}</div><div class="lbl">Warnings</div></div>
 </div>
-<div class="progress"><div class="progress-bar" style="width:${passRate}%;background:${passRate>=80?'#22c55e':passRate>=50?'#f59e0b':'#ef4444'}"></div></div>
+<div class="progress"><div class="progress-bar" style="width:${passRate}%;background:${passRate>=80?'#22c55e':passRate>=50?'#22d3ee':'#ef4444'}"></div></div>
 
 <h3>Files Analyzed</h3>
 <table>
@@ -282,7 +282,7 @@ export function generateRunReport(
 
     return `
       <div style="margin-bottom:4px">
-        <span style="font-size:13px;font-weight:700;color:#facc15;font-family:monospace">${escapeHtml(group.subprogram)}</span>
+        <span style="font-size:13px;font-weight:700;color:#22d3ee;font-family:monospace">${escapeHtml(group.subprogram)}</span>
         <span style="font-size:10px;color:#71717a;margin-left:8px">${group.runs.length} run${group.runs.length !== 1 ? 's' : ''}</span>
         <span style="margin-left:8px"><span class="badge badge-pass">${gPass} pass</span></span>
         ${gFail > 0 ? `<span style="margin-left:4px"><span class="badge badge-fail">${gFail} fail</span></span>` : ''}
@@ -311,7 +311,7 @@ export function generateRunReport(
   <div class="card"><div class="val ${passRate >= 80 ? 'green' : passRate >= 50 ? 'amber' : 'red'}">${passRate}%</div><div class="lbl">Pass Rate</div></div>
   <div class="card"><div class="val amber">${runs.length}</div><div class="lbl">Subprograms</div></div>
 </div>
-<div class="progress"><div class="progress-bar" style="width:${passRate}%;background:${passRate>=80?'#22c55e':passRate>=50?'#f59e0b':'#ef4444'}"></div></div>
+<div class="progress"><div class="progress-bar" style="width:${passRate}%;background:${passRate>=80?'#22c55e':passRate>=50?'#22d3ee':'#ef4444'}"></div></div>
 
 <h3>Test Runs by Subprogram</h3>
 ${groupRows || '<p style="color:#52525b;font-size:12px">No test runs recorded yet — run tests in the Test Cases tab first.</p>'}

@@ -16,7 +16,7 @@ interface AnalysisOutputProps {
 
 const complexityColor = (score: number) => {
   if (score <= 2) return { bar: '#22c55e', text: 'text-green-400', label: 'Low' };
-  if (score <= 5) return { bar: '#f59e0b', text: 'text-amber-400', label: 'Med' };
+  if (score <= 5) return { bar: '#22d3ee', text: 'text-cyan-400', label: 'Med' };
   return { bar: '#ef4444', text: 'text-red-400', label: 'High' };
 };
 
@@ -180,7 +180,7 @@ export const AnalysisOutput: React.FC<AnalysisOutputProps> = ({ compact = false 
         {!hasBackendData && (
           <span
             className="ml-1 px-1.5 py-0.5 rounded text-[9px]"
-            style={{ background: 'rgba(250,204,21,0.08)', color: '#facc15', border: '1px solid rgba(250,204,21,0.15)' }}
+            style={{ background: 'rgba(34,211,238,0.08)', color: '#22d3ee', border: '1px solid rgba(34,211,238,0.15)' }}
           >
             demo data
           </span>
@@ -248,7 +248,7 @@ export const AnalysisOutput: React.FC<AnalysisOutputProps> = ({ compact = false 
               {[
                 { label: 'Total',      value: displaySubps.length,  color: '#e4e4e7', bg: 'rgba(255,255,255,0.05)' },
                 { label: 'Functions',  value: displayFuncs.length,  color: '#fb923c', bg: 'rgba(251,146,60,0.08)' },
-                { label: 'Procedures', value: displayProcs.length,  color: '#facc15', bg: 'rgba(250,204,21,0.08)' },
+                { label: 'Procedures', value: displayProcs.length,  color: '#22d3ee', bg: 'rgba(34,211,238,0.08)' },
               ].map(item => (
                 <div key={item.label} className="flex flex-col items-center py-2 rounded"
                   style={{ background: item.bg, border: '1px solid rgba(255,255,255,0.06)' }}>
@@ -305,7 +305,7 @@ export const AnalysisOutput: React.FC<AnalysisOutputProps> = ({ compact = false 
             {/* Procedures list */}
             {displayProcs.length > 0 && (
               <div>
-                <p className="text-[9px] font-mono uppercase tracking-wider mb-1.5" style={{ color: '#facc15' }}>
+                <p className="text-[9px] font-mono uppercase tracking-wider mb-1.5" style={{ color: '#22d3ee' }}>
                   Procedures ({displayProcs.length})
                 </p>
                 <div className="flex flex-col gap-0.5">
@@ -313,11 +313,11 @@ export const AnalysisOutput: React.FC<AnalysisOutputProps> = ({ compact = false 
                     <div key={i}
                       onClick={() => s.start_line && navigateToFile(s.start_line)}
                       className="flex items-center gap-2 px-2 py-1.5 rounded cursor-pointer transition-colors"
-                      style={{ background: 'rgba(250,204,21,0.03)' }}
-                      onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = 'rgba(250,204,21,0.08)'; }}
-                      onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = 'rgba(250,204,21,0.03)'; }}
+                      style={{ background: 'rgba(34,211,238,0.03)' }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = 'rgba(34,211,238,0.08)'; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = 'rgba(34,211,238,0.03)'; }}
                     >
-                      <span className="text-[11px] font-mono flex-shrink-0" style={{ color: '#facc15' }}>⚡</span>
+                      <span className="text-[11px] font-mono flex-shrink-0" style={{ color: '#22d3ee' }}>⚡</span>
                       <span className="text-[11px] font-mono font-semibold flex-1 min-w-0 truncate"
                         style={{ color: '#e4e4e7' }} title={s.name}>{s.name}</span>
                       {(s.parameters?.length ?? 0) > 0 && (
@@ -386,7 +386,7 @@ export const AnalysisOutput: React.FC<AnalysisOutputProps> = ({ compact = false 
       {hasBackendData && (logicalErrors.length > 0 || perfWarnings.length > 0) && (
         <div className={cardClass} style={cardStyle}>
           <div className="flex items-center gap-2 mb-2">
-            <AlertTriangle size={13} className="text-amber-400" />
+            <AlertTriangle size={13} className="text-cyan-400" />
             <span className="text-xs font-mono font-semibold text-zinc-300">Warnings</span>
             <span className="ml-auto text-[10px] font-mono text-zinc-600">
               {logicalErrors.length + perfWarnings.length} found
@@ -394,7 +394,7 @@ export const AnalysisOutput: React.FC<AnalysisOutputProps> = ({ compact = false 
           </div>
           {[...logicalErrors, ...perfWarnings].map((msg, i) => (
             <div key={i} className="flex items-center gap-2 py-1 px-1 rounded">
-              <ChevronRight size={10} className="text-amber-400 flex-shrink-0" />
+              <ChevronRight size={10} className="text-cyan-400 flex-shrink-0" />
               <span className="text-xs font-mono text-zinc-400">{msg}</span>
             </div>
           ))}
@@ -405,14 +405,14 @@ export const AnalysisOutput: React.FC<AnalysisOutputProps> = ({ compact = false 
       {!hasBackendData && (
         <div className={cardClass} style={cardStyle}>
           <div className="flex items-center gap-2 mb-2">
-            <AlertTriangle size={13} className="text-amber-400" />
+            <AlertTriangle size={13} className="text-cyan-400" />
             <span className="text-xs font-mono font-semibold text-zinc-300">Unused Variables</span>
             <span className="ml-auto text-[10px] font-mono text-zinc-600">{unusedVarsMock.length} found</span>
           </div>
           {unusedVarsMock.map((d) => (
             <div key={d.id} onClick={() => setActiveTab('code')}
               className="flex items-center gap-2 py-1.5 cursor-pointer hover:bg-zinc-700/30 rounded px-1 transition-colors group">
-              <ChevronRight size={10} className="text-zinc-600 group-hover:text-amber-400 transition-colors" />
+              <ChevronRight size={10} className="text-zinc-600 group-hover:text-cyan-400 transition-colors" />
               <span className="text-xs font-mono text-zinc-400 flex-1 truncate">{d.message}</span>
               <span className="text-[10px] font-mono text-zinc-600">{d.file}:{d.line}</span>
             </div>
@@ -446,7 +446,7 @@ export const AnalysisOutput: React.FC<AnalysisOutputProps> = ({ compact = false 
                                  opacity-0 group-hover/row:opacity-100 transition-opacity duration-150"
                       style={{
                         background: '#18181b',
-                        border: '1px solid rgba(250,204,21,0.3)',
+                        border: '1px solid rgba(34,211,238,0.3)',
                         whiteSpace: 'nowrap',
                         maxWidth: '260px',
                         boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
@@ -482,7 +482,7 @@ export const AnalysisOutput: React.FC<AnalysisOutputProps> = ({ compact = false 
                                  opacity-0 group-hover/row:opacity-100 transition-opacity duration-150"
                       style={{
                         background: '#18181b',
-                        border: '1px solid rgba(250,204,21,0.3)',
+                        border: '1px solid rgba(34,211,238,0.3)',
                         whiteSpace: 'nowrap',
                         maxWidth: '260px',
                         boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
@@ -540,13 +540,13 @@ export const AnalysisOutput: React.FC<AnalysisOutputProps> = ({ compact = false 
       {hasBackendData && (localVarsCount > 0 || globalVarsCount > 0 || paramsCount > 0) && (
         <div className={cardClass} style={cardStyle}>
           <div className="flex items-center gap-2 mb-2">
-            <Zap size={13} className="text-amber-400" />
+            <Zap size={13} className="text-cyan-400" />
             <span className="text-xs font-mono font-semibold text-zinc-300">Variables</span>
           </div>
           {/* Summary counts */}
           <div className="grid grid-cols-2 gap-2 mb-3">
             {[
-              { label: 'Globals', value: globalVarsCount, color: 'text-amber-400' },
+              { label: 'Globals', value: globalVarsCount, color: 'text-cyan-400' },
               { label: 'Locals', value: localVarsCount, color: 'text-zinc-300' },
               { label: 'Params', value: paramsCount, color: 'text-blue-400' },
               { label: 'Constants', value: constantsCount, color: 'text-green-400' },
@@ -595,7 +595,7 @@ export const AnalysisOutput: React.FC<AnalysisOutputProps> = ({ compact = false 
               <div key={i}
                 onClick={() => v.line && navigateToFile(v.line)}
                 className="flex items-center gap-2 py-1 px-1 rounded hover:bg-zinc-700/30 cursor-pointer transition-colors">
-                <ChevronRight size={9} className={`flex-shrink-0 ${v.is_constant ? 'text-green-500' : 'text-amber-500'}`} />
+                <ChevronRight size={9} className={`flex-shrink-0 ${v.is_constant ? 'text-green-500' : 'text-cyan-500'}`} />
                 <span className="text-[10px] font-mono text-zinc-300 font-semibold">{v.name}</span>
                 <span className="text-[9px] font-mono text-zinc-500 flex-1 truncate"
                   style={{ color: v.type === 'Unknown' || v.type === 'unknown' ? '#52525b' : undefined }}

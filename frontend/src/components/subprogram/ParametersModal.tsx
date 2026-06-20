@@ -41,14 +41,14 @@ export const ParametersModal: React.FC<ParametersModalProps> = ({ sub, onClose }
     >
       <div
         className="w-full max-w-lg rounded-xl overflow-hidden shadow-2xl"
-        style={{ background: '#111111', border: '1px solid #facc15', maxHeight: '80vh' }}
+        style={{ background: '#111111', border: '1px solid #22d3ee', maxHeight: '80vh' }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-3" style={{ borderBottom: '1px solid #1e1e1e', background: '#0d0d0d' }}>
           <div>
             <p className="text-[10px] font-mono uppercase tracking-widest" style={{ color: '#52525b' }}>{sub.kind}</p>
-            <p className="text-base font-mono font-bold" style={{ color: '#facc15' }}>{sub.name}</p>
+            <p className="text-base font-mono font-bold" style={{ color: '#22d3ee' }}>{sub.name}</p>
           </div>
           <div className="flex items-center gap-2">
             <button
